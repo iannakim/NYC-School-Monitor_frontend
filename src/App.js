@@ -1,8 +1,7 @@
 import React from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {NavLink, Switch, Route} from 'react-router-dom'
 import './App.css';
 import Logo from './logo'
-import Nav from './nav'
 import SchoolsContainer from './components/maincomponents/SchoolsContainer'
 import LogIn from './components/entrycomponents/LogIn'
 import {connect} from 'react-redux'
@@ -39,18 +38,37 @@ class App extends React.Component{
 
 
 
-
-
-
-
   render(){
     return(
       <div>
-        <h1> NYC SCHOOL MONITOR</h1>
         < Logo />
-        < Nav />
+        <h1> NYC SCHOOL MONITOR</h1>
+        <p>Hello {this.props.user}!</p>
+
+        <NavLink to="/" activeClassName="selected">
+          Home
+        </NavLink>
+
+        <NavLink to="/main" activeClassName="selected">
+          Search Schools
+        </NavLink>
+
+        <NavLink to="/faq" activeClassName="selected">
+          Saved Schools
+        </NavLink>
+
+        <NavLink to="/login" activeClassName="selected">
+          Log In
+        </NavLink>
+
+        <NavLink to="/faq" activeClassName="selected">
+          Sign Up
+        </NavLink>
 
         <Switch>
+          <Route path='/'>
+            <h3>home page stuff here</h3>
+          </Route>
 
           <Route path='/main'>
             <SchoolsContainer />
@@ -63,15 +81,16 @@ class App extends React.Component{
   }
 }
 
+
+
+// -----------------------------------------------------------------
+
 let setSchools = (array) => {
   return {
     type: "SET_SCHOOLS_PLEASE",
     payload: array
   }
 }
-
-
-
 
 let setUserInfo = (userInfo) => {
   return {
@@ -85,4 +104,10 @@ let mapDispatchToProps = {
   setUserInfo: setUserInfo 
 }
 
-export default connect(null, mapDispatchToProps)(App);
+let mapStateToProps = (globalState) => {
+  return {
+      user: globalState.infoAboutUser.username
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

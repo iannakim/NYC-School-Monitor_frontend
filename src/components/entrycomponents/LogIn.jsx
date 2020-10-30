@@ -52,7 +52,7 @@ handleSubmit = (evt) => {
 render(){
     return(
         <>
-            <h2>Login Form</h2>
+            <h2>Log In</h2>
             <p>{this.state.error_message}</p>
             <form onSubmit={this.handleSubmit}>
                 <label htmlFor="username">Username:</label>
