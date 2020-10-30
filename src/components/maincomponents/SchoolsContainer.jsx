@@ -17,7 +17,14 @@ class SchoolsContainer extends React.Component{
   render(){
 
     let arrayOfSchools = this.props.schools.map(school => {
-      return <li key={school.id}>{school.name}</li>
+      return <div className="school-info" key={school.id}>
+                <div>
+                <h2> {school.name} </h2>
+                </div>
+                <div>
+                  <p>{school.address}, {school.city} {school.zipcode}</p>
+                </div>
+            </div> 
     })
 
 

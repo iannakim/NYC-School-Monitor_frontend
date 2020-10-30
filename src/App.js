@@ -43,7 +43,7 @@ class App extends React.Component{
       <div>
         < Logo />
         <h1> NYC SCHOOL MONITOR</h1>
-        <p>Hello {this.props.user}!</p>
+        <p>Logged in as: {this.props.user}</p>
 
         <NavLink to="/" activeClassName="selected">
           Home
@@ -53,7 +53,7 @@ class App extends React.Component{
           Search Schools
         </NavLink>
 
-        <NavLink to="/faq" activeClassName="selected">
+        <NavLink to="/saved" activeClassName="selected">
           Saved Schools
         </NavLink>
 
@@ -61,13 +61,13 @@ class App extends React.Component{
           Log In
         </NavLink>
 
-        <NavLink to="/faq" activeClassName="selected">
+        <NavLink to="/signup" activeClassName="selected">
           Sign Up
         </NavLink>
 
         <Switch>
-          <Route path='/'>
-            <h3>home page stuff here</h3>
+          <Route exact path='/'>
+            <h3>welcome to nyc school monitor home page!</h3>
           </Route>
 
           <Route path='/main'>
