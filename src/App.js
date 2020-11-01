@@ -42,7 +42,7 @@ class App extends React.Component{
     return(
       <div>
         < Logo />
-        <h3> NYC SCHOOL MONITOR</h3>
+        <h4> NYC SCHOOL MONITOR</h4>
         <p>Logged in as: {this.props.user}</p>
 
         <NavLink to="/" activeClassName="selected">
