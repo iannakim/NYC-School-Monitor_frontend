@@ -1,10 +1,16 @@
 import React from 'react'
 import {NavLink, Switch, Route} from 'react-router-dom'
 import './App.css';
-import Logo from './logo'
+import {connect} from 'react-redux'
+
+
+import Logo from './components/logo'
+import Navbar from './components/navbar'
+import Home from './components/Home'
 import SchoolsContainer from './components/maincomponents/SchoolsContainer'
 import LogIn from './components/entrycomponents/LogIn'
-import {connect} from 'react-redux'
+import SignUp from './components/entrycomponents/SignUp'
+
 
 
 
@@ -42,39 +48,15 @@ class App extends React.Component{
     return(
       <div>
         < Logo />
-        <h2> NYC SCHOOL MONITOR</h2>
-        <p>Logged in as: {this.props.user}</p>
-
-        <NavLink to="/" activeClassName="selected">
-          Home
-        </NavLink>
-
-        <NavLink to="/main" activeClassName="selected">
-          Search Schools
-        </NavLink>
-
-        <NavLink to="/saved" activeClassName="selected">
-          Saved Schools
-        </NavLink>
-
-        <NavLink to="/login" activeClassName="selected">
-          Log In
-        </NavLink>
-
-        <NavLink to="/signup" activeClassName="selected">
-          Sign Up
-        </NavLink>
+        < Navbar />
 
         <Switch>
-          <Route exact path='/'>
-            <h3>welcome to nyc school monitor home page!</h3>
-          </Route>
-
-          <Route path='/main'>
-            <SchoolsContainer />
-          </Route>
+          <Route path="/" exact component={Home}/>
+          <Route path='/main' exact component={SchoolsContainer}/>
 
           <Route path='/login' component={LogIn} />
+          <Route path="/signup" component={SignUp}/>
+          <Route render={ () => <p>Page not Found</p> } />
         </Switch>
       </div>
     )

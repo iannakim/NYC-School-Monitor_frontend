@@ -10,7 +10,9 @@ class SchoolsContainer extends React.Component{
   }
 
 
-
+handleClick = () => {
+  console.log("CLICKED!")
+}
 
 
 
@@ -19,11 +21,17 @@ class SchoolsContainer extends React.Component{
     let arrayOfSchools = this.props.schools.map(school => {
       return <div className="school-info" key={school.id}>
                 <div>
-                <h4> {school.name} </h4>
+                  <h4 onClick={this.handleClick}> {school.name} </h4>
                 </div>
+
                 <div>
                   <p>{school.address}, {school.city} {school.zipcode}</p>
                 </div>
+
+                <div>
+                  <button className="school-button" onClick={this.handleClick}>View Info</button>
+                </div>
+
             </div> 
     })
 

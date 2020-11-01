@@ -41,7 +41,7 @@ handleSubmit = (evt) => {
             //     username: "",
             //     password: ""
             // })
-            this.props.history.push("/main")
+            this.props.history.push("/")
 
         }
     })
@@ -73,7 +73,6 @@ render(){
 }
 
 }
-// End of Component
 
 
 

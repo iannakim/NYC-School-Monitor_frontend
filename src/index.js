@@ -2,12 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {BrowserRouter} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // REDUX STUFF HERE
 import {createStore, combineReducers} from 'redux'
 import {Provider} from 'react-redux'
+
+// ROUTING STUFF HERE
+import {BrowserRouter} from 'react-router-dom'
+
+
 
 // ----- School Reducer -----
 let initialStateOfSchoolsReducer = {
@@ -45,6 +49,9 @@ let userReducer = (state = initialStateOfUserReducer, action) => {
         username: action.payload.user.username,
         token: action.payload.token
       }
+      case "LOG_OUT_USER":
+        return initialStateOfUserReducer
+        
     default:
       return state
   }
