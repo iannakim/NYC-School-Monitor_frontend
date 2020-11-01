@@ -19,7 +19,7 @@ class SchoolsContainer extends React.Component{
     let arrayOfSchools = this.props.schools.map(school => {
       return <div className="school-info" key={school.id}>
                 <div>
-                <h3> {school.name} </h3>
+                <h4> {school.name} </h4>
                 </div>
                 <div>
                   <p>{school.address}, {school.city} {school.zipcode}</p>
@@ -30,7 +30,7 @@ class SchoolsContainer extends React.Component{
 
     return(
       <div>
-        <h1>List of NYC Schools</h1>
+        <h2>List of NYC Schools</h2>
         <ul>
             {arrayOfSchools}
         </ul>
