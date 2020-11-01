@@ -1,10 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import { Input, Form, Button } from 'semantic-ui-react'
 
 class LogIn extends React.Component{
-  state = {
+
+state = {
     username: "",
     password: "",
     error_message: ""
@@ -51,25 +52,45 @@ handleSubmit = (evt) => {
 }
 
 render(){
+
+    let {username, password} = this.state
+
     return(
-        <>
-            <h2>Log In</h2>
+        <div>
+            <h1>Log In</h1>
             <p>{this.state.error_message}</p>
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor="username">Username:</label>
-                <input type="text" id="username" name="username" 
-                    onChange={this.handleChange} 
-                    value={this.state.username}
-                    />
-                <label htmlFor="password">Password:</label>
-                <input type="password" id="password" 
-                    name="password" 
+            <Form> 
+                <Form.Field id="username"
+                    control={Input}
+                    label="Username"
+                    placeholder="Username"
+                    name="username"
+                    value={username}
                     onChange={this.handleChange}
-                    value={this.state.password}
+                    width={8}
                 />
-                <input type="submit" value="Login"/>
-            </form>
-        </>
+                <Form.Field id="password"
+                    control={Input}
+                    label="Password"
+                    placeholder="Password"
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={this.handleChange}
+                    width={8}
+                />
+                <Form.Field
+                    id='submit'
+                    control={Button}
+                    content='Sign Up'
+                    onClick={this.handleSubmit}
+                />
+            </Form>
+            <p>
+                Don't Have an Account?
+                <Link to="/signup">Sign Up!</Link>
+            </p>
+        </div>
     )
 }
 
