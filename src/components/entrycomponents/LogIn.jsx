@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import { Input, Form, Button } from 'semantic-ui-react'
 
 class LogIn extends React.Component{
   state = {
