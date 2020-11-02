@@ -1,4 +1,5 @@
 import React from 'react'
+import Moment from 'react-moment';
 import { Card, Button } from 'semantic-ui-react'
 
 class Review extends React.Component{
@@ -11,9 +12,12 @@ class Review extends React.Component{
       <Card.Content>
           <Card.Header><h5>{content}</h5></Card.Header>
           <Card.Description>
-              Comment by: {user.username} On: {created_at}
+              comment by: {user.username} on: <Moment format="MM/DD/YYYY">{created_at}</Moment>
           </Card.Description>
       </Card.Content>
+        
+        {/* if the logged in user matches the user.username, then render buttons */}
+        
         <Card.Content>
             <div>
                 <Button floated='right'>

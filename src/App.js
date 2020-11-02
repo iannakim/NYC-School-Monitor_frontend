@@ -35,10 +35,9 @@ class App extends React.Component{
         }
       })
       .then(res => res.json())
-      .then(resp => {
-        console.log(resp, "RESPONSE")
-        if(resp.token){
-          this.props.setUserInfo(resp)
+      .then(userInfo => {
+        if(userInfo.token){
+          this.props.setUserInfo(userInfo)
         }
       })
 
@@ -53,7 +52,7 @@ class App extends React.Component{
     if(foundSchool){
       return <SchoolPageContainer {...routerProps} foundSchool={foundSchool}/>
     } else {
-      return <p>404 Page</p>
+      return <p>Loading...</p>
     }
   }
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import Review from './Review'
+import ReviewForm from './ReviewForm'
 
 
 function SelectedSchoolPage(props) {
@@ -60,18 +60,18 @@ function SelectedSchoolPage(props) {
       </div>
 
       <div>
-        <h3>School Overview</h3>
+        <h4>School Overview</h4>
         <p>{overview}</p>
       </div>
         
       <div>
-        <h3>Transportation</h3>
+        <h4>Transportation</h4>
         <p>Subway: {subway} </p>
         <p>Bus: {bus} </p>
       </div>
 
       <div>
-        <h3>Academics</h3>
+        <h4>Academics</h4>
         <p>Total No. of Students: {total_students} </p>
         <p>Graduation Rate (as of 2019): {parseFloat(graduation_rate) * 100}% </p>
         <p>Attendance Rate (as of 2019): {parseFloat(attendance_rate) * 100}% </p>
@@ -86,10 +86,10 @@ function SelectedSchoolPage(props) {
       </div>
   
       <div>
-        <h3>Reviews:</h3>
           <div>
+            <ReviewForm />
             <ul>
-              {arrayOfReviews}
+              { arrayOfReviews } 
             </ul>
           </div>
       </div>

@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import 'moment-timezone';
+
 // REDUX STUFF HERE
 import {createStore, combineReducers} from 'redux'
 import {Provider} from 'react-redux'
@@ -38,6 +40,7 @@ let schoolReducer = (state = initialStateOfSchoolsReducer, action) => {
 let initialStateOfUserReducer = {
   username: "",
   token: "",
+  reviews: {}
 }
 
 
@@ -48,7 +51,8 @@ let userReducer = (state = initialStateOfUserReducer, action) => {
       return {
         ...state,
         username: action.payload.user.username,
-        token: action.payload.token
+        token: action.payload.token,
+        reviews: action.payload.user.reviews
       }
       case "LOG_OUT_USER":
         return initialStateOfUserReducer

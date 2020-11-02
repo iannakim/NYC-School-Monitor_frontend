@@ -39,10 +39,6 @@ handleSubmit = (evt) => {
         } else {
             this.props.setUserInfo(resp)
             localStorage.token = resp.token
-            // this.setState({
-            //     username: "",
-            //     password: ""
-            // })
             this.props.history.push("/")
 
         }
