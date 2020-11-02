@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import Review from './Review'
 
 
 function SelectedSchoolPage(props) {
@@ -26,8 +27,15 @@ function SelectedSchoolPage(props) {
       langclasses, 
       ellprograms, 
       apcourses, 
-      extracurricular 
+      extracurricular, 
       } = props.foundSchool
+
+  let arrayOfReviews = props.foundSchool.reviews.map(review => {
+      return <Review 
+                key={review.id}
+                review={review}
+            />
+    })
 
   return(
     <div>
@@ -77,6 +85,14 @@ function SelectedSchoolPage(props) {
         <p>{extracurricular} </p>
       </div>
   
+      <div>
+        <h3>Reviews:</h3>
+          <div>
+            <ul>
+              {arrayOfReviews}
+            </ul>
+          </div>
+      </div>
     </div>
   )
 }
