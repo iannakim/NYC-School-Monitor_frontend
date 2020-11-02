@@ -1,16 +1,19 @@
 import React from 'react'
-import {NavLink, Switch, Route} from 'react-router-dom'
+import {Link, Switch, Route, withRouter, Redirect} from 'react-router-dom'
 import './App.css';
 import {connect} from 'react-redux'
 
-
+// ----- components ----------
 import Logo from './components/logo'
 import Navbar from './components/navbar'
 import Home from './components/Home'
-import SchoolsContainer from './components/maincomponents/SchoolsContainer'
-import LogIn from './components/entrycomponents/LogIn'
-import SignUp from './components/entrycomponents/SignUp'
-
+import NotFound from './components/NotFound'
+import SavedList from './components/saved/SavedList'
+import Account from './components/user/Account'
+import SchoolsContainer from './components/schools/SchoolsContainer'
+import LogIn from './components/entry/LogIn'
+import SignUp from './components/entry/SignUp'
+import SchoolPageContainer from'./components/selectedSchool/SelectedSchoolPage'
 
 
 
@@ -42,6 +45,20 @@ class App extends React.Component{
     }
   }
 
+  showSingleSchool = (routerProps) => {
+    let id = routerProps.match.params.id
+    let num_id = parseInt(id)
+    let foundSchool = this.props.schools.find(school => school.id === num_id)
+
+    if(foundSchool){
+      return <SchoolPageContainer {...routerProps} foundSchool={foundSchool}/>
+    } else {
+      return <p>404 Page</p>
+    }
+  }
+
+
+
 
 
   render(){
@@ -52,11 +69,13 @@ class App extends React.Component{
 
         <Switch>
           <Route path="/" exact component={Home}/>
-          <Route path='/main' exact component={SchoolsContainer}/>
-
-          <Route path='/login' component={LogIn} />
+          <Route path="/schools" exact component={SchoolsContainer}/>
+          <Route path="/schools/:id/" render={this.showSingleSchool}/>
+          <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp}/>
-          <Route render={ () => <p>Page not Found</p> } />
+          <Route path="/saved" component={SavedList} />
+          <Route path="/account" component={Account} />
+          <Route component={NotFound} />
         </Switch>
       </div>
     )
@@ -88,7 +107,8 @@ let mapDispatchToProps = {
 
 let mapStateToProps = (globalState) => {
   return {
-      user: globalState.infoAboutUser.username
+      user: globalState.infoAboutUser.username,
+      schools: globalState.infoAboutSchools.schools
   }
 }
 

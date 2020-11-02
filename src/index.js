@@ -16,6 +16,7 @@ import {BrowserRouter} from 'react-router-dom'
 // ----- School Reducer -----
 let initialStateOfSchoolsReducer = {
   schools: [],
+  selectedSchool: {}
 }
 
 let schoolReducer = (state = initialStateOfSchoolsReducer, action) => {
@@ -51,6 +52,12 @@ let userReducer = (state = initialStateOfUserReducer, action) => {
       }
       case "LOG_OUT_USER":
         return initialStateOfUserReducer
+        
+      case "SET_SCHOOL":
+        return {
+          ...state,
+          selectedSchool: action.payload
+        }
         
     default:
       return state
