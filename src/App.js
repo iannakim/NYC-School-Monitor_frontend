@@ -13,7 +13,7 @@ import Account from './components/user/Account'
 import SchoolsContainer from './components/schools/SchoolsContainer'
 import LogIn from './components/entry/LogIn'
 import SignUp from './components/entry/SignUp'
-import SchoolPageContainer from'./components/selectedSchool/SelectedSchoolPage'
+import SelectedSchoolPage from'./components/selectedSchool/SelectedSchoolPage'
 
 
 
@@ -50,12 +50,24 @@ class App extends React.Component{
     let foundSchool = this.props.schools.find(school => school.id === num_id)
 
     if(foundSchool){
-      return <SchoolPageContainer {...routerProps} foundSchool={foundSchool}/>
+      return <SelectedSchoolPage {...routerProps} foundSchool={foundSchool} addReviewToSpecificSchool={this.addReviewToSpecificSchool} />
     } else {
       return <p>Loading...</p>
     }
   }
 
+
+  addReviewToSpecificSchool = (reviewObj, schoolID) => {
+    let foundSchool = this.props.schools.find(school => school.id === schoolID)
+    let copyOfReviews = [...foundSchool.reviews, reviewObj]
+    // CHANGE COPY OF DRINKS TO FIT YOUR CRUD NEEDS
+
+    let copyOfSchool = {
+      ...foundSchool, 
+      reviews: copyOfReviews
+    }
+    return copyOfSchool
+  }
 
 
 
@@ -107,7 +119,8 @@ let mapDispatchToProps = {
 let mapStateToProps = (globalState) => {
   return {
       user: globalState.infoAboutUser.username,
-      schools: globalState.infoAboutSchools.schools
+      schools: globalState.infoAboutSchools.schools,
+      selectedSchool: globalState.infoAboutUser.selectedSchool
   }
 }
 

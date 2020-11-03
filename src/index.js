@@ -18,7 +18,6 @@ import {BrowserRouter} from 'react-router-dom'
 // ----- School Reducer -----
 let initialStateOfSchoolsReducer = {
   schools: [],
-  selectedSchool: {}
 }
 
 let schoolReducer = (state = initialStateOfSchoolsReducer, action) => {
@@ -30,6 +29,12 @@ let schoolReducer = (state = initialStateOfSchoolsReducer, action) => {
         ...state,
         schools: theInfoFromComponent
       }
+    // case "ADD_REVIEW":
+    //   let copyOfReviews = [...state.schools, action.payload]
+    //   return {
+    //     ...state,
+    //     reviews: copyOfReviews
+    //   }
     default:
       return state
   }
@@ -40,7 +45,8 @@ let schoolReducer = (state = initialStateOfSchoolsReducer, action) => {
 let initialStateOfUserReducer = {
   username: "",
   token: "",
-  reviews: {}
+  reviews: [],
+  selectedSchool: []
 }
 
 

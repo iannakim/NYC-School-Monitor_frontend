@@ -1,6 +1,8 @@
 import React from 'react'
 import Moment from 'react-moment';
 import { Card, Button } from 'semantic-ui-react'
+import {connect} from 'react-redux'
+
 
 class Review extends React.Component{
   render(){
@@ -18,25 +20,41 @@ class Review extends React.Component{
         
         {/* if the logged in user matches the user.username, then render buttons */}
         
-        <Card.Content>
-            <div>
-                <Button floated='right'>
-                  Edit
-                </Button>
-            </div>
-        </Card.Content>
+        { this.props.currentUser === user.username
+            ?
+            <div> 
+              <Card.Content>
+                  <div>
+                      <Button floated='right'>
+                        Edit
+                      </Button>
+                  </div>
+              </Card.Content>
 
-       
-        <Card.Content>
-            <div>
-                <Button floated='right'>
-                  Delete
-                </Button>
+            
+              <Card.Content>
+                  <div>
+                      <Button floated='right'>
+                        Delete
+                      </Button>
+                  </div>
+              </Card.Content>
             </div>
-        </Card.Content>
+              :
+              null
+        }
+
+
     </Card>
     )
   }
 }
 
-export default Review
+let mapStateToProps = (globalState) => {
+  return {
+      currentUser: globalState.infoAboutUser.username
+  }
+}
+
+
+export default connect(mapStateToProps)(Review)

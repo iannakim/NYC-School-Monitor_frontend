@@ -31,7 +31,9 @@ handleSubmit = (evt) => {
   .then(response => response.json())
   .then(res => {
     console.log(res)
-
+    this.props.addReview(res)
+    this.props.addReviewToSpecificSchool(res, this.props.school.id)
+  //NEED TO SEND THIS BACK UP IN ORDER TO REFRESH THE REVIEWS... BUT send this back to school reducer.
   })
 }
 
@@ -68,8 +70,17 @@ handleSubmit = (evt) => {
 let mapStateToProps = (globalState) => {
   return {
       token: globalState.infoAboutUser.token,
-      school: globalState.infoAboutUser.selectedSchool
   }
 }
 
-export default connect(mapStateToProps)(ReviewForm)
+
+let addReview = (newReview) => {
+  return {
+      type: "ADD_REVIEW",
+      payload: newReview
+  }
+}
+
+let mapToDispatch = {addReview}
+
+export default connect(mapStateToProps, mapToDispatch)(ReviewForm)
