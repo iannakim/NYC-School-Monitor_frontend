@@ -5,6 +5,11 @@ import {connect} from 'react-redux'
 
 
 class Review extends React.Component{
+  
+  handleDelete = () => {
+    
+  }
+  
   render(){
 
     let {user, content, created_at} = this.props.review
@@ -34,7 +39,7 @@ class Review extends React.Component{
             
               <Card.Content>
                   <div>
-                      <Button floated='right'>
+                      <Button floated='right' onClick={this.handleDelete}>
                         Delete
                       </Button>
                   </div>

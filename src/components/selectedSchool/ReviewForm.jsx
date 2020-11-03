@@ -31,8 +31,9 @@ handleSubmit = (evt) => {
   .then(response => response.json())
   .then(res => {
     console.log(res)
-    this.props.addReview(res)
-    this.props.addReviewToSpecificSchool(res, this.props.school.id)
+    let reviewWithId = {review: res, school_id: this.props.school.id}
+    this.props.addReview(reviewWithId)
+    // this.props.addReviewToSpecificSchool(res, this.props.school.id)
   //NEED TO SEND THIS BACK UP IN ORDER TO REFRESH THE REVIEWS... BUT send this back to school reducer.
   })
 }

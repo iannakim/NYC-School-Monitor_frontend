@@ -29,16 +29,28 @@ let schoolReducer = (state = initialStateOfSchoolsReducer, action) => {
         ...state,
         schools: theInfoFromComponent
       }
-    // case "ADD_REVIEW":
-    //   let copyOfReviews = [...state.schools, action.payload]
-    //   return {
-    //     ...state,
-    //     reviews: copyOfReviews
-    //   }
+    case "ADD_REVIEW":
+        let foundSchool = state.schools.find(school => school.id === action.payload.school_id)
+        let copyOfReviews = [...foundSchool.reviews, action.payload.review]
+        let copyOfSchool = {
+          ...foundSchool,
+          reviews: copyOfReviews
+        }
+        let arrayOfSchools = state.schools.map(school => {
+                if (school.id === copyOfSchool.id){
+                  return copyOfSchool
+                }
+                else { return school }
+              })
+        return {...state, schools: arrayOfSchools}
+
+      // debugger
+
     default:
       return state
   }
 }
+
 
 // ----- User Reducer -----
 

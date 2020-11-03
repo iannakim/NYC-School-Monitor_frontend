@@ -50,26 +50,11 @@ class App extends React.Component{
     let foundSchool = this.props.schools.find(school => school.id === num_id)
 
     if(foundSchool){
-      return <SelectedSchoolPage {...routerProps} foundSchool={foundSchool} addReviewToSpecificSchool={this.addReviewToSpecificSchool} />
+      return <SelectedSchoolPage {...routerProps} foundSchool={foundSchool} />
     } else {
       return <p>Loading...</p>
     }
   }
-
-
-  addReviewToSpecificSchool = (reviewObj, schoolID) => {
-    let foundSchool = this.props.schools.find(school => school.id === schoolID)
-    let copyOfReviews = [...foundSchool.reviews, reviewObj]
-    // CHANGE COPY OF DRINKS TO FIT YOUR CRUD NEEDS
-
-    let copyOfSchool = {
-      ...foundSchool, 
-      reviews: copyOfReviews
-    }
-    return copyOfSchool
-  }
-
-
 
 
   render(){
