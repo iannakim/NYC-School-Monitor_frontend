@@ -7,7 +7,15 @@ import {connect} from 'react-redux'
 class Review extends React.Component{
   
   handleDelete = () => {
-    
+    fetch(`http://localhost:3000/reviews/${this.props.review.id}`, {
+      method: "DELETE"
+  })
+      .then(res => res.json())
+      .then((deletedObj) => {
+          let deletedReviewWithID = {review_id: this.props.review.id, school_id: this.props.school.id}
+          this.props.deleteReview(deletedReviewWithID)
+
+      })
   }
   
   render(){
@@ -61,5 +69,13 @@ let mapStateToProps = (globalState) => {
   }
 }
 
+let deleteReview = (deletedReviewID) => {
+  return {
+      type: "DELETE_REVIEW",
+      payload: deletedReviewID
+  }
+}
 
-export default connect(mapStateToProps)(Review)
+let mapToDispatch = {deleteReview}
+
+export default connect(mapStateToProps, mapToDispatch)(Review)

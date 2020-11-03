@@ -37,12 +37,37 @@ let schoolReducer = (state = initialStateOfSchoolsReducer, action) => {
           reviews: copyOfReviews
         }
         let arrayOfSchools = state.schools.map(school => {
-                if (school.id === copyOfSchool.id){
-                  return copyOfSchool
-                }
-                else { return school }
+          if (school.id === copyOfSchool.id){
+            return copyOfSchool
+          }
+          else { return school }
               })
-        return {...state, schools: arrayOfSchools}
+      return {
+        ...state, 
+        schools: arrayOfSchools
+      }
+    case "DELETE_REVIEW":
+        let newFoundSchool = state.schools.find(school => school.id === action.payload.school_id)  
+        let newCopyOfReviews = newFoundSchool.reviews.filter(review => {
+          return review.id !== action.payload.review_id
+        })
+        let newCopyOfSchools = {
+          ...newFoundSchool,
+          reviews: newCopyOfReviews
+        }
+        let newArrayOfSchools = state.schools.map(school => {
+          if (school.id === newCopyOfSchools.id){
+            return newCopyOfSchools
+          }
+          else { return school }
+        })
+        return {
+        ...state, 
+        schools: newArrayOfSchools
+        }
+      
+     
+
 
       // debugger
 

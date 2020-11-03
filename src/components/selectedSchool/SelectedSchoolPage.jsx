@@ -17,6 +17,7 @@ goBack = () => {
           return <Review 
                     key={review.id}
                     review={review}
+                    school={this.props.foundSchool}
                 />
         })
 
