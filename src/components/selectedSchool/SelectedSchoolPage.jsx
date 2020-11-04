@@ -51,7 +51,7 @@ goBack = () => {
         <div>
 
           <div>
-            <button onClick={this.goBack}>Go Back</button>
+            <button onClick={this.goBack}>Back</button>
           </div>
 
             <div>

@@ -1,21 +1,50 @@
-import React from 'react'
+import React from 'react';
 import Moment from 'react-moment';
-import { Card, Button } from 'semantic-ui-react'
-import {connect} from 'react-redux'
+import { confirmAlert } from "react-confirm-alert";
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import { Card, Button } from 'semantic-ui-react';
+import {connect} from 'react-redux';
 
 
 class Review extends React.Component{
   
   handleDelete = () => {
+
+    confirmAlert({
+      title: "Confirm to delete",
+      message: "Are you sure you want to delete this review?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+
+
     fetch(`http://localhost:3000/reviews/${this.props.review.id}`, {
       method: "DELETE"
   })
       .then(res => res.json())
       .then((deletedObj) => {
-          let deletedReviewWithID = {review_id: this.props.review.id, school_id: this.props.school.id}
+          let deletedReviewWithID = {
+            review_id: this.props.review.id,
+            school_id: this.props.school.id
+          }
           this.props.deleteReview(deletedReviewWithID)
 
       })
+
+
+
+    },
+  },
+  {
+    label: "No",
+    // onClick: () => alert('Click No')
+  },
+],
+});
+
+
+
   }
   
   render(){
