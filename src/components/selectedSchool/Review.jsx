@@ -1,7 +1,7 @@
 import React from 'react';
 import Moment from 'react-moment';
 import { confirmAlert } from "react-confirm-alert";
-import 'react-confirm-alert/src/react-confirm-alert.css';
+import "react-confirm-alert/src/react-confirm-alert.css";
 import { Card, Button } from 'semantic-ui-react';
 import {connect} from 'react-redux';
 

@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import SingleSchool from './SingleSchool'
 import Searchbar from './Searchbar'
+import MapContainer from './MapContainer';
 
 class SchoolsContainer extends React.Component{
 
@@ -29,11 +30,6 @@ class SchoolsContainer extends React.Component{
       return <SingleSchool key={school.id} school={school} />
     })
 
-    // let arrayOfSchools = this.props.schools.map(school => {
-    //   return <SingleSchool key={school.id} school={school} />
-      
-    // })
-
 
     return(
       <div>
@@ -45,7 +41,7 @@ class SchoolsContainer extends React.Component{
         <ul>
             {arrayOfSchools}
         </ul>
-
+          <MapContainer searchTerm={this.state.searchTerm}/>
       </div>
 
 

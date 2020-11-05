@@ -1,8 +1,8 @@
 import React from 'react'
-import { render } from 'react-dom'
 import { Link, withRouter } from 'react-router-dom'
 import Review from './Review'
 import ReviewForm from './ReviewForm'
+import { Icon, Grid } from 'semantic-ui-react'
 
 
 class SelectedSchoolPage extends React.Component {
@@ -54,22 +54,26 @@ goBack = () => {
             <button onClick={this.goBack}>Back</button>
           </div>
 
-            <div>
-                <h2>{name}</h2>
-            </div>
+            <div className="ui celled grid">
+                  <div className="row">
+                      <div className="ten wide column">
+                          <h2>{name}</h2>
+                      </div>
+                  </div>
+            
           
               <div>
-                <p>School website: {website} </p>
-                <p>Address: {address}, {city} {state}, {zipcode}</p>
-                <p>Phone: {phone} </p>
-                <p>Email: {email} </p>
-                <p>Grades: {grades} </p>
-                <p>Start Time: {start_time} </p>
-                <p>End Time: {end_time}</p>
+                <p><Icon name="graduation cap"></Icon> {grades}th grade </p>
+                <p><Icon name="world"></Icon> <a href={website} target="_blank"> {website}</a> </p>
+                <p><Icon name="map marker alternate"></Icon> {address}, {city} {state}, {zipcode}</p>
+                <p><Icon name="phone"></Icon> {phone} </p>
+                <p><Icon name="mail"></Icon> <a href={email} target="_blank">{email}</a> </p>
+                
+                <p><Icon name="clock"></Icon> {start_time} - {end_time}</p>
               </div>
 
               <div>
-                <h4>Building Information</h4>
+                <h3>Building Information</h3>
                 <p>Shared space: {shared_space} </p>
                 <p>Accessibility: {accessibility} </p>
               </div>
@@ -81,13 +85,13 @@ goBack = () => {
                 
               <div>
                 <h4>Transportation</h4>
-                <p>Subway: {subway} </p>
-                <p>Bus: {bus} </p>
+                <p><Icon name="subway"></Icon> Subway: {subway} </p>
+                <p><Icon name="bus"></Icon> Bus: {bus} </p>
               </div>
 
               <div>
                 <h4>Academics</h4>
-                <p>Total No. of Students: {total_students} </p>
+                <p><Icon name="group"></Icon> {total_students} students</p>
                 <p>Graduation Rate (as of 2019): {parseFloat(graduation_rate) * 100}% </p>
                 <p>Attendance Rate (as of 2019): {parseFloat(attendance_rate) * 100}% </p>
                 <p>ELL Program(s): {ellprograms} </p>
@@ -100,8 +104,10 @@ goBack = () => {
                 <p>{extracurricular} </p>
               </div>
           
-              <div>
+          
+          </div>
 
+              <div>
                 <div>
                   <ReviewForm 
                     school={this.props.foundSchool}
@@ -111,6 +117,8 @@ goBack = () => {
                   </ul>
                 </div>
             </div>
+
+
         </div>
       )
   } 

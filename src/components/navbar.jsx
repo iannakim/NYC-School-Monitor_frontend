@@ -18,19 +18,16 @@ class Navbar extends React.Component {
                     ?
                     <ul className="nav">
                         <li>
-                            <p>NYC SCHOOL MONITOR</p>
+                            <NavLink to="/">NYC SCHOOL MONITOR</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/">Home</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/schools">Search Schools</NavLink>
+                            <NavLink to="/schools">School Directory</NavLink>
                         </li>
                         <li>
                             <NavLink to="/saved">Saved List</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/account">Account</NavLink>
+                            <NavLink to="/account">My Account</NavLink>
                         </li>
                         <li onClick={this.handleClick}>
                             <NavLink to="/">Log Out</NavLink>
