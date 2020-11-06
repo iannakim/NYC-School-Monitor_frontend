@@ -3,6 +3,7 @@ import {Link, Switch, Route, withRouter, Redirect} from 'react-router-dom'
 import './App.css';
 import {connect} from 'react-redux'
 
+
 // ----- components ----------
 import Logo from './components/logo'
 import Navbar from './components/navbar'

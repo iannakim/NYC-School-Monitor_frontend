@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
-import { Card, Button } from 'semantic-ui-react'
+import { Card, Button, Icon } from 'semantic-ui-react'
 
 class SingleSchool extends React.Component{
 
@@ -13,17 +13,21 @@ handleClick = () => {
 
   render(){
 
-    let {name, address, city, zipcode} = this.props.school
+    let {name, address, city, zipcode, grades} = this.props.school
 
     return(
-        <Card onClick={this.handleClick}>
-                <Card.Content>
-                    <Card.Header><h3>{name}</h3></Card.Header>
-                    <Card.Description>
-                        {address}, {city} {zipcode}
-                    </Card.Description>
-                </Card.Content>
-        </Card>
+      <Card.Group>
+          <Card fluid color='purple' onClick={this.handleClick}>
+                  <Card.Content header={name} />
+                  <Card.Content description>
+                    <Icon name="map marker alternate"></Icon> {address} {city} {zipcode} 
+                  </Card.Content>
+                  <Card.Content extra>
+                    <Icon name="accessible"></Icon><Icon name="graduation"></Icon> {grades} 
+                  </Card.Content>
+
+          </Card>
+      </Card.Group>
     )
   }
 }

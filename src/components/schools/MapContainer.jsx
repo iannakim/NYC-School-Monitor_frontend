@@ -55,15 +55,12 @@ class MapContainer extends React.Component {
               {this.displayMarkers()}
           </Map>
       </div>
-  ) 
-
-
-
+    ) 
   }
 }
 
 
-
+console.log(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
 
 
   let mapStateToProps = (gState) => {
@@ -73,5 +70,5 @@ class MapContainer extends React.Component {
   }
 
 export default connect(mapStateToProps)(GoogleApiWrapper({
-  apiKey: process.env.REACT_APP_GOOGLE_API_KEY
+  apiKey: process.env.REACT_APP_API_KEY_GOOGLE_MAPS
 })(MapContainer))
