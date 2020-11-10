@@ -48,20 +48,17 @@ goBack = () => {
         } = this.props.foundSchool
 
       return(
-        <div>
-
+        <Grid columns='equal'>
+          <Grid.Row>
+            <Grid.Column width={10}>
           <div>
             <button onClick={this.goBack}>Back</button>
           </div>
 
-            <div className="ui celled grid">
-                  <div className="row">
-                      <div className="ten wide column">
-                          <h2>{name}</h2>
-                      </div>
-                  </div>
+
+             <h2>{name}</h2>
+ 
             
-          
               <div>
                 <p><Icon name="graduation cap"></Icon> {grades}th grade </p>
                 <p><Icon name="world"></Icon> <a href={website} target="_blank"> {website}</a> </p>
@@ -80,7 +77,7 @@ goBack = () => {
 
               <div>
                 <h4>School Overview</h4>
-                <p>{overview}</p>
+                <p> {overview} </p>
               </div>
                 
               <div>
@@ -104,8 +101,7 @@ goBack = () => {
                 <p>{extracurricular} </p>
               </div>
           
-          
-          </div>
+
 
               <div>
                 <div>
@@ -119,7 +115,9 @@ goBack = () => {
             </div>
 
 
-        </div>
+                </Grid.Column>
+              </Grid.Row>
+        </Grid>
       )
   } 
 } 

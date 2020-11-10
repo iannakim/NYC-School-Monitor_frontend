@@ -84,7 +84,7 @@ render(){
             </Form>
             <p>
                 Don't Have an Account?
-                <Link to="/signup">Sign Up!</Link>
+                <Link to="/signup"> Sign Up!</Link>
             </p>
         </div>
     )

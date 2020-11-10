@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 
 
 // ----- components ----------
-import Logo from './components/logo'
 import Navbar from './components/navbar'
 import Home from './components/Home'
 import NotFound from './components/NotFound'
@@ -61,7 +60,6 @@ class App extends React.Component{
   render(){
     return(
       <div>
-        < Logo />
         < Navbar />
 
         <Switch>

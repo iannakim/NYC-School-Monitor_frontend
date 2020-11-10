@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import SingleSchool from './SingleSchool'
 import Searchbar from './Searchbar'
+import Filter from './Filter'
 import MapContainer from './MapContainer';
 import { Grid, Segment } from 'semantic-ui-react'
 
@@ -36,26 +37,35 @@ class SchoolsContainer extends React.Component{
       // <div>
       //   <h2>List of Schools in NYC</h2>
     <Grid columns='equal'>
-          <Grid.Row>
-            <Grid.Column width={8}>
-
-                  
+        <Grid.Row>
+          <Grid.Column width={6}>
                     <Searchbar 
-                        searchTerm={this.state.searchTerm}
-                        changeSearchTerm={this.changeSearchTerm}
-                    />
+                          searchTerm={this.state.searchTerm}
+                          changeSearchTerm={this.changeSearchTerm}
+                          />
+                    
+
+                    <Filter 
+                          />
                     <ul>
                             {arrayOfSchools}
                     </ul>
+          </Grid.Column>
+         
 
-            </Grid.Column>
 
-            <Grid.Column width={8}>
+  
+
+                    
+
+
+
+            <Grid.Column width={10}>
                   
                     <MapContainer searchTerm={this.state.searchTerm}/>
 
             </Grid.Column>
-          </Grid.Row>
+      </Grid.Row>
     </Grid>
 
          

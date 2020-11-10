@@ -4,11 +4,10 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
 
 const mapStyles = {
   position: 'absolute',
-  marginTop: '1%',
-  marginLeft: '1%',
-  width: '70%',
-  height: "90vh",
-  border: 'solid 1px white',
+  marginTop: '0%',
+  marginLeft: '0%',
+  width: '100%',
+  height: '180vh',
   borderRadius: "5px"
 };
 
@@ -49,7 +48,7 @@ class MapContainer extends React.Component {
           <Map 
               className="map"
               google={this.props.google}
-              zoom={11}
+              zoom={12}
               style={mapStyles}
               initialCenter={{ lat: 40.711185, lng: -73.888122}}>
               {this.displayMarkers()}
@@ -59,8 +58,6 @@ class MapContainer extends React.Component {
   }
 }
 
-
-console.log(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
 
 
   let mapStateToProps = (gState) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
-import { Input, Form, Button } from 'semantic-ui-react'
+import { Input, Form, Button, Radio } from 'semantic-ui-react'
 
 class SignUp extends React.Component{
 
@@ -13,6 +13,7 @@ class SignUp extends React.Component{
     }
 
     handleChange = (evt) => {
+        console.log(evt.target.value)
         this.setState({
             [evt.target.name]: evt.target.value
         })
@@ -57,7 +58,7 @@ class SignUp extends React.Component{
             <Form>
                 <Form.Field id="username"
                     control={Input}
-                    label="Username"
+                    label="Create a Username"
                     placeholder="Username"
                     name="username"
                     value={username}
@@ -66,7 +67,7 @@ class SignUp extends React.Component{
                 />
                 <Form.Field id="password"
                     control={Input}
-                    label="Password"
+                    label="Create a Password (at least 5 characters)"
                     placeholder="Password"
                     type="password"
                     name="password"
@@ -76,14 +77,14 @@ class SignUp extends React.Component{
                 />
                 <Form.Field id="email"
                     control={Input}
-                    label="Email"
+                    label="Valid Email Address"
                     placeholder="Email"
                     name="email"
                     value={email}
                     onChange={this.handleChange}
                     width={8}
                 />
-                <Form.Field id="role"
+                {/* <Form.Field id="role"
                     control={Input}
                     label="Role"
                     placeholder="Role"
@@ -91,7 +92,51 @@ class SignUp extends React.Component{
                     value={role}
                     onChange={this.handleChange}
                     width={8}
-                />
+                /> */}
+
+                <Form.Field>
+                    Your Role: <b>{role}</b>
+                    </Form.Field>
+                <Form.Field>
+                        <Radio
+                            label="Parent"
+                            name="role"
+                            value="Parent"
+                            checked={role === "Parent"}
+                            onChange={this.handleChange}
+                        />
+                    </Form.Field>
+
+                <Form.Field>
+                        <Radio
+                            label="Current Student"
+                            name="role"
+                            value="Current Student"
+                            checked={role === "Current Student"}
+                            onChange={this.handleChange}
+                        />
+                </Form.Field>
+
+                <Form.Field>
+                        <Radio
+                            label="Teacher"
+                            name="role"
+                            value="Teacher"
+                            checked={role === "Teacher"}
+                            onChange={this.handleChange}
+                        />
+                </Form.Field>
+
+                <Form.Field>
+                        <Radio
+                            label="Alumni"
+                            name="role"
+                            value="Alumni"
+                            checked={role === "Alumni"}
+                            onChange={this.handleChange}
+                        />
+                </Form.Field>
+
                 <Form.Field
                     id='submit'
                     control={Button}
@@ -101,7 +146,7 @@ class SignUp extends React.Component{
             </Form>
                 <p>
                     Have an Account?
-                    <Link to="/login">Log In!</Link>
+                    <Link to="/login"> Log In!</Link>
                 </p>
         </div>
         )
