@@ -13,10 +13,18 @@ class SignUp extends React.Component{
     }
 
     handleChange = (evt) => {
-        console.log(evt.target.value)
-        this.setState({
-            [evt.target.name]: evt.target.value
-        })
+        if (evt.target.value) {
+            this.setState({
+                [evt.target.name]: evt.target.value
+            })
+        }
+        else {
+            this.setState({
+                "role": evt.target.innerHTML
+            })
+        }
+        console.log(evt.target)
+        
     } 
 
     handleClick = (evt) => {
@@ -48,56 +56,46 @@ class SignUp extends React.Component{
         })
     }
 
-    render(){
+    render() {
 
         let {username, password, email, role} = this.state
 
-    return(
-        <div>
-             <h1>Sign Up</h1>
-            <Form>
-                <Form.Field id="username"
-                    control={Input}
-                    label="Create a Username"
-                    placeholder="Username"
-                    name="username"
-                    value={username}
-                    onChange={this.handleChange}
-                    width={8}
-                />
-                <Form.Field id="password"
-                    control={Input}
-                    label="Create a Password (at least 5 characters)"
-                    placeholder="Password"
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={this.handleChange}
-                    width={8}
-                />
-                <Form.Field id="email"
-                    control={Input}
-                    label="Valid Email Address"
-                    placeholder="Email"
-                    name="email"
-                    value={email}
-                    onChange={this.handleChange}
-                    width={8}
-                />
-                {/* <Form.Field id="role"
-                    control={Input}
-                    label="Role"
-                    placeholder="Role"
-                    name="role"
-                    value={role}
-                    onChange={this.handleChange}
-                    width={8}
-                /> */}
-
-                <Form.Field>
-                    Your Role: <b>{role}</b>
+        return(
+            <div>
+                <h1>Sign Up</h1>
+                <Form>
+                    <Form.Field id="username"
+                        control={Input}
+                        label="Create a Username"
+                        placeholder="Username"
+                        name="username"
+                        value={username}
+                        onChange={this.handleChange}
+                        width={8}
+                    />
+                    <Form.Field id="password"
+                        control={Input}
+                        label="Create a Password (at least 5 characters)"
+                        placeholder="Password"
+                        type="password"
+                        name="password"
+                        value={password}
+                        onChange={this.handleChange}
+                        width={8}
+                    />
+                    <Form.Field id="email"
+                        control={Input}
+                        label="Valid Email Address"
+                        placeholder="Email"
+                        name="email"
+                        value={email}
+                        onChange={this.handleChange}
+                        width={8}
+                    />
+                    <Form.Field>
+                        Your Role: <b>{role}</b>
                     </Form.Field>
-                <Form.Field>
+                    <Form.Field>
                         <Radio
                             label="Parent"
                             name="role"
@@ -106,8 +104,7 @@ class SignUp extends React.Component{
                             onChange={this.handleChange}
                         />
                     </Form.Field>
-
-                <Form.Field>
+                    <Form.Field>
                         <Radio
                             label="Current Student"
                             name="role"
@@ -115,9 +112,8 @@ class SignUp extends React.Component{
                             checked={role === "Current Student"}
                             onChange={this.handleChange}
                         />
-                </Form.Field>
-
-                <Form.Field>
+                    </Form.Field>
+                    <Form.Field>
                         <Radio
                             label="Teacher"
                             name="role"
@@ -125,9 +121,8 @@ class SignUp extends React.Component{
                             checked={role === "Teacher"}
                             onChange={this.handleChange}
                         />
-                </Form.Field>
-
-                <Form.Field>
+                    </Form.Field>
+                    <Form.Field>
                         <Radio
                             label="Alumni"
                             name="role"
@@ -135,20 +130,20 @@ class SignUp extends React.Component{
                             checked={role === "Alumni"}
                             onChange={this.handleChange}
                         />
-                </Form.Field>
+                    </Form.Field>
 
-                <Form.Field
-                    id='submit'
-                    control={Button}
-                    content='Sign Up'
-                    onClick={this.handleClick}
-                />
-            </Form>
+                    <Form.Field
+                        id='submit'
+                        control={Button}
+                        content='Sign Up'
+                        onClick={this.handleClick}
+                    />
+                </Form>
                 <p>
                     Have an Account?
                     <Link to="/login"> Log In!</Link>
                 </p>
-        </div>
+            </div>
         )
     }
 }

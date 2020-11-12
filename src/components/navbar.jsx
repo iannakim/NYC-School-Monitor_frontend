@@ -28,11 +28,12 @@ class Navbar extends React.Component {
                    
                    <Menu style={{
                     height: "70px",
+                    backgroundColor: '#1C39BB',
                     color: "white",
                     fontFamily:'Helvetica Neue',
-                    fontSize: '1.3rem',
+                    fontSize: '1.2rem',
                     fontWeight: '600',
-                  }} color={'blue'} inverted widths={6}>      
+                  }} inverted widths={5}>      
                         
                         <Menu.Item 
                             name='home'
@@ -55,7 +56,7 @@ class Navbar extends React.Component {
                             active={activeItem === 'savedList'}
                             onClick={this.handleItemClick}
                         >
-                            <NavLink to="/saved"><Icon name="th list"></Icon> Saved List</NavLink>
+                            <NavLink to="/saved"><Icon name="th list"></Icon> Favorites</NavLink>
                         </Menu.Item>
 
                         <Menu.Item 
@@ -76,12 +77,13 @@ class Navbar extends React.Component {
                     </Menu>
                     :
                     <Menu style={{
-                        height: "70px",
-                        color: "white",
-                        fontFamily:'Helvetica Neue',
-                        fontSize: '1.3rem',
-                        fontWeight: '600',
-                      }} color={'blue'} inverted widths={6}>
+                    height: "70px",
+                    backgroundColor: '#1C39BB',
+                    color: "white",
+                    fontFamily:'Helvetica Neue',
+                    fontSize: '1.2rem',
+                    fontWeight: '600',
+                      }} inverted widths={5}>
                     <Menu.Item 
                         name='home'
                         active={activeItem === 'home'}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Grid } from 'semantic-ui-react';
+import { Icon, Input } from 'semantic-ui-react';
 
 class Searchbar extends React.Component{
 
@@ -9,17 +9,16 @@ class Searchbar extends React.Component{
 
   render(){
     return(
-      <Grid>
-      <Grid.Column width={8}>
-            <Search
+        <div class="ui icon input">
+            <input 
                 type="text" 
                 name="search" 
                 value={this.props.searchTerm}
                 onChange={this.handleInput}
                 placeholder="Search for a school..."
             />
-          </Grid.Column>
-      </Grid>
+          <i aria-hidden="true" class="search circular inverted link icon"></i>
+        </div>
     )
   }
 }

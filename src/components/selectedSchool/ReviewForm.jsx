@@ -17,6 +17,7 @@ class ReviewForm extends React.Component{
 
 handleSubmit = (evt) => {
   evt.preventDefault()
+
   fetch("http://localhost:3000/review",{
       method: "POST",
       headers: {
@@ -36,6 +37,9 @@ handleSubmit = (evt) => {
 
   //NEED TO SEND THIS BACK UP TO SCHOOL REDUCER
   })
+  this.setState({
+    content: ""
+})
 }
 
 
@@ -45,11 +49,11 @@ handleSubmit = (evt) => {
 
     return(
       <div>
-         <h4>Reviews</h4>
+         <h2>School Reviews</h2>
             <Form>
               <Form.Field
                   control={TextArea}
-                  label="Content"
+                  label="Please Write Your Review Here"
                   placeholder="write your review here"
                   name="content"
                   value={content}

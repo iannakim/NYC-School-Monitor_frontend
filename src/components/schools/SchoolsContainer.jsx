@@ -4,7 +4,7 @@ import SingleSchool from './SingleSchool'
 import Searchbar from './Searchbar'
 import Filter from './Filter'
 import MapContainer from './MapContainer';
-import { Grid, Segment } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 class SchoolsContainer extends React.Component{
 

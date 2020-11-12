@@ -5,6 +5,7 @@ import ReviewForm from './ReviewForm'
 import { Icon, Grid } from 'semantic-ui-react'
 
 
+
 class SelectedSchoolPage extends React.Component {
 
 goBack = () => {
@@ -50,13 +51,29 @@ goBack = () => {
       return(
         <Grid columns='equal'>
           <Grid.Row>
-            <Grid.Column width={10}>
+            <Grid.Column width={10}
+            style={{
+              marginLeft: '2%'
+            }}>
           <div>
-            <button onClick={this.goBack}>Back</button>
+            <button 
+              onClick={this.goBack}
+              style={{
+                height: "50px",
+                width: "400px",
+                backgroundColor: '#1C39BB',
+                color: 'white',
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                borderRadius: "5px",
+                marginTop: '5%'
+              }}>
+                  Back
+            </button>
           </div>
 
 
-             <h2>{name}</h2>
+             <h1>{name}</h1>
  
             
               <div>
@@ -70,24 +87,24 @@ goBack = () => {
               </div>
 
               <div>
-                <h3>Building Information</h3>
+                <h2>Building Information</h2>
                 <p>Shared space: {shared_space} </p>
                 <p>Accessibility: {accessibility} </p>
               </div>
 
               <div>
-                <h4>School Overview</h4>
+                <h2>School Overview</h2>
                 <p> {overview} </p>
               </div>
                 
               <div>
-                <h4>Transportation</h4>
+                <h2>Transportation</h2>
                 <p><Icon name="subway"></Icon> Subway: {subway} </p>
                 <p><Icon name="bus"></Icon> Bus: {bus} </p>
               </div>
 
               <div>
-                <h4>Academics</h4>
+                <h2>Academics</h2>
                 <p><Icon name="group"></Icon> {total_students} students</p>
                 <p>Graduation Rate (as of 2019): {parseFloat(graduation_rate) * 100}% </p>
                 <p>Attendance Rate (as of 2019): {parseFloat(attendance_rate) * 100}% </p>
@@ -97,7 +114,7 @@ goBack = () => {
               </div>
 
               <div>
-                <h4>Extracurricular Activities and Clubs</h4>
+                <h2>Extracurricular Activities and Clubs</h2>
                 <p>{extracurricular} </p>
               </div>
           

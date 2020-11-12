@@ -1,13 +1,29 @@
 import React from 'react';
 import Moment from 'react-moment';
 import { confirmAlert } from "react-confirm-alert";
-import "react-confirm-alert/src/react-confirm-alert.css";
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import { Card, Button } from 'semantic-ui-react';
 import {connect} from 'react-redux';
+import Modal from './Modal';
 
 
 class Review extends React.Component{
   
+
+  state = { show: false };
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+
+
+  //--------------------------------------------------
+
   handleDelete = () => {
 
     confirmAlert({
@@ -66,12 +82,17 @@ class Review extends React.Component{
             ?
             <div> 
               <Card.Content>
-                  <div>
-                      <Button floated='right'>
+                  <div>              
+              <Modal show={this.state.show} handleClose={this.hideModal}>
+                <p>Modal</p>
+                <p>Data</p>
+              </Modal>
+                      <Button floated='right' onClick={this.showModal}>
                         Edit
                       </Button>
                   </div>
               </Card.Content>
+
 
             
               <Card.Content>
