@@ -63,8 +63,25 @@ let schoolReducer = (state = initialStateOfSchoolsReducer, action) => {
         return {
         ...state, 
         schools: newArrayOfSchools
+      }
+    case "UPDATE_REVIEW":
+        let thefoundSchool = state.schools.find(school => school.id === action.payload.school_id)
+        let updatedReviews = thefoundSchool.reviews;
+
+        let theCopyOfSchool = {
+          ...thefoundSchool,
+          reviews: updatedReviews
         }
-      
+        let theNewArrayOfSchools = state.schools.map(school => {
+          if (school.id === theCopyOfSchool.id){
+            return theCopyOfSchool
+          }
+          else { return school }
+              })
+      return {
+        ...state, 
+        schools: theNewArrayOfSchools
+      }
      
 
 
@@ -81,6 +98,7 @@ let schoolReducer = (state = initialStateOfSchoolsReducer, action) => {
 let initialStateOfUserReducer = {
   username: "",
   token: "",
+  role: "",
   reviews: [],
   selectedSchool: []
 }
@@ -94,6 +112,7 @@ let userReducer = (state = initialStateOfUserReducer, action) => {
         ...state,
         username: action.payload.user.username,
         token: action.payload.token,
+        role: action.payload.user.role,
         reviews: action.payload.user.reviews
       }
       case "LOG_OUT_USER":

@@ -1,20 +1,27 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
+import marker from '../../images/pencil_32px.png';
+
 
 const mapStyles = {
   position: 'absolute',
   marginTop: '0%',
   marginLeft: '0%',
   width: '100%',
-  height: '180vh',
+  height: '100%',
   borderRadius: "5px"
 };
 
 
 class MapContainer extends React.Component {
 
-  
+  state = { open: false }
+
+  handleClose = () => this.setState({ open: false })
+  handleOpen = () => this.setState({ open: true })
+
+
 
   displayMarkers = () => {
     let {schools} = this.props
@@ -33,22 +40,25 @@ class MapContainer extends React.Component {
     return <Marker 
               key={index} 
               id={school.id}
-              options={{icon: 'https://cdn2.iconfinder.com/data/icons/color-svg-vector-icons-2/512/map_marker_base-32.png'}} 
+              options={{icon: marker}} 
               position={{
-        lat: school.latitude,
-        lng: school.longitude
-    }}
+                  lat: school.latitude,
+                  lng: school.longitude
+              }}
               onClick={() => console.log(`${school.name}`)} />
     })
 }
 
   render(){
+
+    const { open } = this.state
+
     return (
-      <div className="wrapper">
+      <div>
           <Map 
               className="map"
               google={this.props.google}
-              zoom={12}
+              zoom={11}
               style={mapStyles}
               initialCenter={{ lat: 40.711185, lng: -73.888122}}>
               {this.displayMarkers()}

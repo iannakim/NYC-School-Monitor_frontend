@@ -14,6 +14,7 @@ import SchoolsContainer from './components/schools/SchoolsContainer'
 import LogIn from './components/entry/LogIn'
 import SignUp from './components/entry/SignUp'
 import SelectedSchoolPage from'./components/selectedSchool/SelectedSchoolPage'
+import ViewSchoolContainer from'./components/selectedSchool/SelectedSchoolPage'
 
 
 
@@ -61,17 +62,31 @@ class App extends React.Component{
     return(
       <div>
         < Navbar />
-
-        <Switch>
-          <Route path="/" exact component={Home}/>
-          <Route path="/schools" exact component={SchoolsContainer}/>
-          <Route path="/schools/:id/" render={this.showSingleSchool}/>
-          <Route path="/login" component={LogIn} />
-          <Route path="/signup" component={SignUp}/>
-          <Route path="/saved" component={SavedList} />
-          <Route path="/account" component={Account} />
-          <Route component={NotFound} />
-        </Switch>
+        <div style={{
+                        position: 'fixed',
+                        top: "50px",
+                        width: "100%",
+                        height: "calc(100% - 60px)",
+                        backgroundColor: '#FFF5EE',
+                        backgroundImage: `url(https://images.unsplash.com/photo-1527187162622-535b785f65f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=997&q=80)`,
+                        color: "black",
+                        fontFamily:'Helvetica Neue',
+                        fontSize: '1.2rem',
+                        overflowY: "auto",
+                        overflowX: "hidden"
+                    }}>
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/schools" exact component={SchoolsContainer}/>
+            <Route path="/schools/:id/" render={this.showSingleSchool}/>
+            <Route path="/viewschool" component={ViewSchoolContainer}/>
+            <Route path="/login" component={LogIn} />
+            <Route path="/signup" component={SignUp}/>
+            <Route path="/saved" component={SavedList} />
+            <Route path="/account" component={Account} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
       </div>
     )
   }

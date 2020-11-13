@@ -27,20 +27,22 @@ class Navbar extends React.Component {
                     ?
                    
                    <Menu style={{
-                    height: "70px",
-                    backgroundColor: '#1C39BB',
-                    color: "white",
-                    fontFamily:'Helvetica Neue',
-                    fontSize: '1.2rem',
-                    fontWeight: '600',
-                  }} inverted widths={5}>      
+                        position: 'fixed',
+                        height: "60px",
+                        backgroundColor: '#273BE2',
+                        color: "white",
+                        fontFamily:'Helvetica Neue',
+                        fontSize: '1.2rem',
+                        fontWeight: '600',
+                        paddingBottom: '10px'
+                    }} inverted widths={5}>      
                         
                         <Menu.Item 
                             name='home'
                             active={activeItem === 'home'}
                             onClick={this.handleItemClick}
                         >
-                            <NavLink to="/">NYC SCHOOL MONITOR</NavLink>
+                            <NavLink to="/"><h3>NYC SCHOOL MONITOR</h3></NavLink>
                         </Menu.Item>
                 
                         <Menu.Item 
@@ -56,7 +58,7 @@ class Navbar extends React.Component {
                             active={activeItem === 'savedList'}
                             onClick={this.handleItemClick}
                         >
-                            <NavLink to="/saved"><Icon name="th list"></Icon> Favorites</NavLink>
+                            <NavLink to="/saved"><Icon name="star outline"></Icon> Saved Schools</NavLink>
                         </Menu.Item>
 
                         <Menu.Item 
@@ -64,7 +66,7 @@ class Navbar extends React.Component {
                             active={activeItem === 'account'}
                             onClick={this.handleItemClick}
                         >
-                            <NavLink to="/account"><Icon name="user circle"></Icon> My Account</NavLink>
+                            <NavLink to="/account"><Icon name="user circle"></Icon> Hello {this.props.currentUser}</NavLink>
                         </Menu.Item>
 
                         <Menu.Item 
@@ -77,13 +79,15 @@ class Navbar extends React.Component {
                     </Menu>
                     :
                     <Menu style={{
-                    height: "70px",
-                    backgroundColor: '#1C39BB',
-                    color: "white",
-                    fontFamily:'Helvetica Neue',
-                    fontSize: '1.2rem',
-                    fontWeight: '600',
-                      }} inverted widths={5}>
+                        position: 'fixed',
+                        height: "60px",
+                        backgroundColor: '#273BE2',
+                        color: "white",
+                        fontFamily:'Helvetica Neue',
+                        fontSize: '1.2rem',
+                        fontWeight: '600',
+                        paddingBottom: '10px'
+                        }} inverted widths={5}>
                     <Menu.Item 
                         name='home'
                         active={activeItem === 'home'}
@@ -128,8 +132,16 @@ let handleLogOut = () => {
     }
 }
 
+let mapStateToProps = (globalState) => {
+    return {
+        currentUser: globalState.infoAboutUser.username
+    }
+  }
+
+
 let mapDispatchToProps = {
     handleLogOut: handleLogOut
 }
 
-export default connect(null, mapDispatchToProps)(withRouter(Navbar))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navbar))
+

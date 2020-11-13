@@ -28,10 +28,11 @@ handleSubmit = (evt) => {
         body: JSON.stringify({
             username: this.state.username,
             password: this.state.password
-        })
+        }) 
     })
     .then(res => res.json())
-    .then(resp =>{
+    .then(resp => {
+        console.log("user", resp);
         if(resp.error){
             this.setState({
                 error_message: resp.error
@@ -52,41 +53,72 @@ render(){
     let {username, password} = this.state
 
     return(
-        <div>
-            <h1>Log In</h1>
-            <p>{this.state.error_message}</p>
-            <Form> 
-                <Form.Field id="username"
-                    control={Input}
-                    label="Username"
-                    placeholder="Username"
-                    name="username"
-                    value={username}
-                    onChange={this.handleChange}
-                    width={8}
-                />
-                <Form.Field id="password"
-                    control={Input}
-                    label="Password"
-                    placeholder="Password"
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={this.handleChange}
-                    width={8}
-                />
-                <Form.Field
-                    id='submit'
-                    control={Button}
-                    content='Sign Up'
-                    onClick={this.handleSubmit}
-                />
-            </Form>
-            <p>
-                Don't Have an Account?
-                <Link to="/signup"> Sign Up!</Link>
-            </p>
+
+        <div className="home-container"
+            style={{
+                width: '100%',
+                height: "100%",
+                color: 'white',
+                textAlign: 'center',
+                backgroundImage: `url(https://images.unsplash.com/photo-1519452575417-564c1401ecc0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)`,
+                backgroundSize: "cover"
+            }} >
+            <center>
+                <div style={{
+                    width: "30%",
+                    height: "400px",
+                    background: "rgba(255, 255, 255, 1)",
+                    // border: "10px solid black",
+                    top: "100px",
+                    left: "36%",
+                    position: "absolute",
+                    color: "black",
+                    borderRadius: "20px",
+                    boxShadow: "4px 3px 10px 1px #969696"
+                }}>
+
+
+                    <div>
+                        <br />
+                            <h1>Log In</h1>
+                            <p>{this.state.error_message}</p>
+                            <Form> 
+                                <Form.Field id="username"
+                                    control={Input}
+                                    label="Username"
+                                    placeholder="Username"
+                                    name="username"
+                                    value={username}
+                                    onChange={this.handleChange}
+                                    width={8}
+                                />
+                                <Form.Field id="password"
+                                    control={Input}
+                                    label="Password"
+                                    placeholder="Password"
+                                    type="password"
+                                    name="password"
+                                    value={password}
+                                    onChange={this.handleChange}
+                                    width={8}
+                                />
+                                <Form.Field
+                                    id='submit'
+                                    control={Button}
+                                    content='Sign Up'
+                                    onClick={this.handleSubmit}
+                                />
+                            </Form>
+                            <p>
+                                Don't Have an Account?
+                                <Link to="/signup"> Sign Up!</Link>
+                            </p>
+                    </div>
+
+                </div>
+            </center>
         </div>
+
     )
 }
 

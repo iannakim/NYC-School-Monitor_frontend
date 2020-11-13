@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import Review from './Review'
 import ReviewForm from './ReviewForm'
-import { Icon, Grid } from 'semantic-ui-react'
+import { Icon, Grid, Button } from 'semantic-ui-react'
 
 
 
@@ -12,15 +12,43 @@ goBack = () => {
   window.history.back();
 }
 
-    render(){
+handleClick = () => {
+  // {
+  //   localStorage.token
+  // ?
 
-    let arrayOfReviews = this.props.foundSchool.reviews.map(review => {
-          return <Review 
+  // fetch("http://localhost:3000/review",{
+  //     method: "POST",
+  //     headers: {
+  //         "Content-type": "application/json",
+  //         "Authorization": this.props.token
+  //     }, 
+  //     body: JSON.stringify({
+  //         content: this.state.content,
+  //         school_id: this.props.school.id
+  //     })
+  // })
+  // .then(response => response.json())
+  // .then(res => {
+  //   console.log(res)
+  //   let reviewWithId = {review: res, school_id: this.props.school.id}
+  //   this.props.addReview(reviewWithId)
+
+  // })
+  // :
+  // alert("please log in first!")
+  // }
+}
+
+    render() {
+      console.log("this is the found school in selectedschoolpage", this.props.foundSchool);
+      let arrayOfReviews = this.props.foundSchool.reviews.map(review => {
+        return <Review 
                     key={review.id}
                     review={review}
                     school={this.props.foundSchool}
                 />
-        })
+      })
 
       let {
         name, 
@@ -48,94 +76,154 @@ goBack = () => {
         extracurricular, 
         } = this.props.foundSchool
 
-      return(
-        <Grid columns='equal'>
+      return (
+        <Grid>
           <Grid.Row>
             <Grid.Column width={10}
-            style={{
-              marginLeft: '2%'
-            }}>
-          <div>
-            <button 
-              onClick={this.goBack}
               style={{
-                height: "50px",
-                width: "400px",
-                backgroundColor: '#1C39BB',
-                color: 'white',
-                fontSize: '1.1rem',
-                fontWeight: '600',
-                borderRadius: "5px",
-                marginTop: '5%'
+                margin: '10px 20px',
+              }}
+            >
+              <div style={{
+                marginTop: "20px", 
+                background: "white", 
+                padding: "20px", 
+                borderRadius: '25px'
               }}>
-                  Back
-            </button>
-          </div>
-
-
-             <h1>{name}</h1>
- 
-            
-              <div>
-                <p><Icon name="graduation cap"></Icon> {grades}th grade </p>
-                <p><Icon name="world"></Icon> <a href={website} target="_blank"> {website}</a> </p>
-                <p><Icon name="map marker alternate"></Icon> {address}, {city} {state}, {zipcode}</p>
-                <p><Icon name="phone"></Icon> {phone} </p>
-                <p><Icon name="mail"></Icon> <a href={email} target="_blank">{email}</a> </p>
                 
-                <p><Icon name="clock"></Icon> {start_time} - {end_time}</p>
-              </div>
+                <div class="section">
+                  <h1>{name}</h1>
+                  <Grid>
+                    <Grid.Row style={{paddingBottom: "0px"}}>
+                      <Grid.Column width={8}>
+                        <p><Icon name="graduation cap"></Icon> {grades}th grade </p>
+                        <p><Icon name="group"></Icon> {total_students} students</p>
+                        <p><Icon name="clock"></Icon> {start_time} - {end_time}</p>
+                      </Grid.Column>
+                      <Grid.Column width={8}>
+                        <p><Icon name="world"></Icon> <a href={website} target="_blank"> {website}</a> </p>
+                        <p><Icon name="mail"></Icon> <a href={email} target="_blank">{email}</a> </p>
+                        <p><Icon name="phone"></Icon> {phone} </p>
+                      </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Row style={{paddingTop: "0px"}}>
+                      <Grid.Column>
+                        <p><Icon name="map marker alternate"></Icon> {address}, {city}, {state}, {zipcode}</p>
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
+                </div>
 
-              <div>
-                <h2>Building Information</h2>
-                <p>Shared space: {shared_space} </p>
-                <p>Accessibility: {accessibility} </p>
-              </div>
+                <div class="section">
+                  <h2>School Overview</h2>
+                  <Grid>
+                    <Grid.Row>
+                      <Grid.Column width={12}>
+                          <p> {overview} </p>
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
+                </div>
+                  
+                <div class="section">
+                  <h2>Performance & Opportunities</h2>
+                  <Grid>
+                    <Grid.Row>
+                      <Grid.Column width={12}>
+                        <p>Graduation Rate (as of 2019): {parseFloat(graduation_rate) * 100}% </p>
+                        <p>Attendance Rate (as of 2019): {parseFloat(attendance_rate) * 100}% </p>
+                        <p>ELL Program(s): {ellprograms} </p>
+                        <p>Foreign Language Subjects: {langclasses} </p>
+                        <p>Advanced Placement Classes: {apcourses} </p>
+                        </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
+                </div>
 
-              <div>
-                <h2>School Overview</h2>
-                <p> {overview} </p>
-              </div>
-                
-              <div>
-                <h2>Transportation</h2>
-                <p><Icon name="subway"></Icon> Subway: {subway} </p>
-                <p><Icon name="bus"></Icon> Bus: {bus} </p>
-              </div>
+                <div class="section">
+                  <h2>Extracurricular Activities</h2>
+                  <Grid>
+                    <Grid.Row>
+                      <Grid.Column width={12}>
+                         <p> {extracurricular} </p>
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
+                </div>
 
-              <div>
-                <h2>Academics</h2>
-                <p><Icon name="group"></Icon> {total_students} students</p>
-                <p>Graduation Rate (as of 2019): {parseFloat(graduation_rate) * 100}% </p>
-                <p>Attendance Rate (as of 2019): {parseFloat(attendance_rate) * 100}% </p>
-                <p>ELL Program(s): {ellprograms} </p>
-                <p>Foreign Language Subjects: {langclasses} </p>
-                <p>Advanced Placement Classes: {apcourses} </p>
-              </div>
+                <div class="section">
+                  <h2>Building Information</h2>
+                  <p><Icon name="building"></Icon>Shared space: {shared_space} </p>
+                  <p><Icon name="accessible"></Icon> {accessibility} </p>
+                </div>
 
-              <div>
-                <h2>Extracurricular Activities and Clubs</h2>
-                <p>{extracurricular} </p>
-              </div>
-          
+                <div class="section">
+                  <h2>Transportation</h2>
+                  <Grid>
+                    <Grid.Row>
+                      <Grid.Column width={5}>
+                      <p><Icon name="bus"></Icon> Bus:<br />{bus}</p>
+                      </Grid.Column>
+                      <Grid.Column width={5}>
+                      <p><Icon name="subway"></Icon> Subway:<br />{subway}</p>
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
+                </div>
 
+                <hr />
 
-              <div>
-                <div>
+                <div class="section">
                   <ReviewForm 
                     school={this.props.foundSchool}
                     addReviewToSpecificSchool={this.props.addReviewToSpecificSchool}/>
-                  <ul>
-                    { arrayOfReviews } 
-                  </ul>
+                  <div style={{marginTop: "80px"}}>
+                    <ul>
+                      { arrayOfReviews } 
+                    </ul>
+                  </div>
                 </div>
-            </div>
-
-
-                </Grid.Column>
-              </Grid.Row>
+              </div>
+            </Grid.Column>
+            <Grid.Column width={3}
+                style={{
+                  margin: '80px 20px'
+                }}
+              >
+              <div>
+                <Button
+                  onClick={this.goBack}
+                  style={{
+                    height: "50px",
+                    width: "100%",
+                    backgroundColor: '#273BE2',
+                    color: 'white',
+                    fontSize: '1.1rem',
+                    fontWeight: '600',
+                    borderRadius: "5px",
+                  }}>
+                      <Icon name="arrow alternate circle left outline" /> Back
+                </Button>
+              </div>
+              <div style={{marginTop: "20px"}}>
+                <Button
+                  onClick={this.handleClick}
+                  style={{
+                    height: "50px",
+                    width: "100%",
+                    backgroundColor: '#FFCC33',
+                    color: 'white',
+                    fontSize: '1.1rem',
+                    fontWeight: '600',
+                    borderRadius: "5px",
+                  }}>
+                      <Icon name="star outline" /> Save
+                </Button>
+              </div>
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
-      )
+    )
   } 
 } 
 

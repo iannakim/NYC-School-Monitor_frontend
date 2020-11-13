@@ -18,6 +18,10 @@ class ReviewForm extends React.Component{
 handleSubmit = (evt) => {
   evt.preventDefault()
 
+  {
+    localStorage.token
+  ?
+
   fetch("http://localhost:3000/review",{
       method: "POST",
       headers: {
@@ -37,9 +41,13 @@ handleSubmit = (evt) => {
 
   //NEED TO SEND THIS BACK UP TO SCHOOL REDUCER
   })
+  :
+  alert("please log in first!")
+  }
   this.setState({
     content: ""
 })
+
 }
 
 
@@ -49,22 +57,23 @@ handleSubmit = (evt) => {
 
     return(
       <div>
-         <h2>School Reviews</h2>
+         <center><h2>School Reviews</h2></center><br/>
             <Form>
               <Form.Field
                   control={TextArea}
-                  label="Please Write Your Review Here"
+                  label="Please refrain from mentioning any real names of teachers or students. Use child-friendly languages only."
                   placeholder="write your review here"
                   name="content"
                   value={content}
                   onChange={this.handleChange}
-                  width={8}
+                  width={16}
               />
               <Form.Field
                   id='submit'
                   control={Button}
                   content='Submit'
                   onClick={this.handleSubmit}
+                  style={{float:"right"}}
               />
             </Form>
       </div>
