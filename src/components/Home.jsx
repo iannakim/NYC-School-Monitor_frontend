@@ -22,7 +22,7 @@ const Home = () => {
             <center>
                 <div style={{
                     width: "650px",
-                    height: "700px",
+                    height: "720px",
                     background: "rgba(255, 255, 255, 1)",
                     border: "10px dashed #F77F00",
                     top: "100px",
@@ -41,7 +41,7 @@ const Home = () => {
                     Also, read and write authentic reviews on each school from <br />
                     teachers, current Students, parents, and alumni students! <br/><br/>
                      
-                    Get started by creating an account.<br /></h3>
+                    Get started by creating an account!<br /></h3>
                     <br />
                         <NavLink to="/schools">
                             <Button basic color='blue' content='Browse Schools!' />

@@ -4,6 +4,7 @@ import Review from './Review'
 import ReviewForm from './ReviewForm'
 import { Icon, Grid, Button } from 'semantic-ui-react'
 import school from '../../images/school_icon.png';
+import ReactTooltip from 'react-tooltip';
 
 
 class SelectedSchoolPage extends React.Component {
@@ -93,7 +94,7 @@ handleClick = () => {
                   <Grid>
                     <Grid.Row style={{paddingBottom: "0px"}}>
                       <Grid.Column width={8}>
-                        <p><Icon name="graduation cap"></Icon> {grades}th grade </p>
+                        <p><Icon name="graduation cap"></Icon> {grades} </p>
                         <p><Icon name="group"></Icon> {total_students} students</p>
                         <p><Icon name="clock"></Icon> {start_time} - {end_time}</p>
                       </Grid.Column>
@@ -127,11 +128,11 @@ handleClick = () => {
                   <Grid>
                     <Grid.Row>
                       <Grid.Column width={12}>
-                        <p>Graduation Rate (as of 2019): {parseFloat(graduation_rate) * 100}% </p>
-                        <p>Attendance Rate (as of 2019): {parseFloat(attendance_rate) * 100}% </p>
-                        <p>ELL Program(s): {ellprograms} </p>
-                        <p>Foreign Language Subjects: {langclasses} </p>
-                        <p>Advanced Placement Classes: {apcourses} </p>
+                        <p><Icon name="student"></Icon> <b>Graduation Rate </b>(as of 2019): {parseFloat(graduation_rate) * 100}% </p>
+                        <p><Icon name="file text outline"></Icon> <b>Attendance Rate </b>(as of 2019): {parseFloat(attendance_rate) * 100}% </p>
+                        <p><Icon name="language"></Icon> <b>ELL Program(s)</b>: {ellprograms} </p>
+                        <p><Icon name="talk"></Icon> <b>Foreign Language Subjects</b>: {langclasses} </p>
+                        <p><Icon name="flask"></Icon> <b>Advanced Placement Courses</b>: {apcourses} </p>
                         </Grid.Column>
                     </Grid.Row>
                   </Grid>
@@ -150,8 +151,9 @@ handleClick = () => {
 
                 <div class="section">
                   <h2>Building Information</h2>
-                  <p><Icon name="building"></Icon>Shared space: {shared_space} </p>
-                  <p><Icon name="accessible"></Icon> {accessibility} </p>
+                  <p><Icon name="building" data-tip="Shared Space Schools are schools that utilize the same building as 1 or more other schools"></Icon> <b>Shared space</b>: {shared_space} </p>
+                  <p><Icon name="accessible" data-tip="Accessible Schools are schools with fully or partially accessible buildings to support students with mobility impairments."></Icon> {accessibility} </p>
+                  <ReactTooltip />
                 </div>
 
                 <div class="section">
