@@ -105,7 +105,7 @@ render(){
                                 <Form.Field
                                     id='submit'
                                     control={Button}
-                                    content='Sign Up'
+                                    content='Log In'
                                     onClick={this.handleSubmit}
                                 />
                             </Form>
