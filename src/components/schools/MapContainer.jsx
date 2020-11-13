@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
-import marker from '../../images/pencil_32px.png';
+import marker from '../../images/school.png';
 
 
 const mapStyles = {
@@ -58,7 +58,7 @@ class MapContainer extends React.Component {
           <Map 
               className="map"
               google={this.props.google}
-              zoom={11}
+              zoom={12}
               style={mapStyles}
               initialCenter={{ lat: 40.711185, lng: -73.888122}}>
               {this.displayMarkers()}

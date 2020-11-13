@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Form, TextArea } from 'semantic-ui-react'
 import {connect} from 'react-redux'
+import write from '../../images/write.png';
 
 class ReviewForm extends React.Component{
 
@@ -57,11 +58,11 @@ handleSubmit = (evt) => {
 
     return(
       <div>
-         <center><h2>School Reviews</h2></center><br/>
+         <center><h2>School Reviews <img src={write}/></h2></center><br/>
             <Form>
               <Form.Field
                   control={TextArea}
-                  label="Please refrain from mentioning any real names of teachers or students. Use child-friendly languages only."
+                  label="Please refrain from mentioning any real names of teachers or students."
                   placeholder="write your review here"
                   name="content"
                   value={content}

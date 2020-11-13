@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import {connect} from 'react-redux'
 import Review from './Review'
 import ReviewForm from './ReviewForm'
 import { Icon, Grid, Button } from 'semantic-ui-react'
-
+import school from '../../images/school_icon.png';
 
 
 class SelectedSchoolPage extends React.Component {
@@ -13,31 +13,27 @@ goBack = () => {
 }
 
 handleClick = () => {
-  // {
-  //   localStorage.token
-  // ?
+  {
+    localStorage.token
+  ?
 
-  // fetch("http://localhost:3000/review",{
-  //     method: "POST",
-  //     headers: {
-  //         "Content-type": "application/json",
-  //         "Authorization": this.props.token
-  //     }, 
-  //     body: JSON.stringify({
-  //         content: this.state.content,
-  //         school_id: this.props.school.id
-  //     })
-  // })
-  // .then(response => response.json())
-  // .then(res => {
-  //   console.log(res)
-  //   let reviewWithId = {review: res, school_id: this.props.school.id}
-  //   this.props.addReview(reviewWithId)
-
-  // })
-  // :
-  // alert("please log in first!")
-  // }
+  fetch("http://localhost:3000/save",{
+      method: "POST",
+      headers: {
+          "Content-type": "application/json",
+          "Authorization": this.props.token
+      }, 
+      body: JSON.stringify({
+          school_id: this.props.foundSchool.id
+      })
+  })
+  .then(response => response.json())
+  .then(res => {
+    console.log(res)
+  })
+  :
+  alert("please log in first!")
+  }
 }
 
     render() {
@@ -86,13 +82,14 @@ handleClick = () => {
             >
               <div style={{
                 marginTop: "20px", 
-                background: "white", 
+                background: "white",
+                opacity: '85%', 
                 padding: "20px", 
                 borderRadius: '25px'
               }}>
                 
                 <div class="section">
-                  <h1>{name}</h1>
+                  <h1><img src={school}/> {name}</h1>
                   <Grid>
                     <Grid.Row style={{paddingBottom: "0px"}}>
                       <Grid.Column width={8}>
@@ -227,6 +224,10 @@ handleClick = () => {
   } 
 } 
 
+let mapStateToProps = (globalState) => {
+  return {
+      token: globalState.infoAboutUser.token,
+  }
+}
 
-
-export default SelectedSchoolPage
+export default connect(mapStateToProps, null)(SelectedSchoolPage)

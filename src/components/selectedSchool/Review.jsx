@@ -9,7 +9,6 @@ import alumni from '../../images/graduate.png';
 import student from '../../images/student.png';
 import parent from '../../images/parent.png';
 
-
 class Review extends React.Component {
   
   state = { 
@@ -112,21 +111,14 @@ class Review extends React.Component {
     let {user, content, created_at} = this.props.review
     
     return( 
-      <Card style={{width: "80%"}}>
-        {/* <Card.Content>
-          <Card.Header><h5>{content}</h5></Card.Header>
-          <Card.Description>
-              comment by: {user.username} {this.getTag(user.role)} on: <Moment format="MM/DD/YYYY">{created_at}</Moment>
-          </Card.Description>
-        </Card.Content> */}
-          
+      <Card style={{width: "80%"}}>  
         <Comment.Group size="large">
           <Comment>
             <Comment.Avatar alt={user.role} src={this.getTag(user.role)} />
             <Comment.Content>
               <Comment.Author> {user.username} </Comment.Author>
               <Comment.Metadata>
-                <div>from <Moment format="MM/DD/YYYY">{created_at}</Moment></div>
+                <div>Posted by {user.role} on <Moment format="MM/DD/YYYY">{created_at}</Moment></div>
 
               </Comment.Metadata>
               <Comment.Text>

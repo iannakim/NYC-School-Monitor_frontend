@@ -66,11 +66,14 @@ let schoolReducer = (state = initialStateOfSchoolsReducer, action) => {
       }
     case "UPDATE_REVIEW":
         let thefoundSchool = state.schools.find(school => school.id === action.payload.school_id)
-        let updatedReviews = thefoundSchool.reviews;
+        let updatedReviews = thefoundSchool.reviews.filter(review => {
+          return review.id !== action.payload.review_id
+        })
+        let updatedCopyOfReviews = [...updatedReviews, action.payload.review]
 
         let theCopyOfSchool = {
           ...thefoundSchool,
-          reviews: updatedReviews
+          reviews: updatedCopyOfReviews
         }
         let theNewArrayOfSchools = state.schools.map(school => {
           if (school.id === theCopyOfSchool.id){
