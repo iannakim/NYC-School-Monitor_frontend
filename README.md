@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# NYC School Monitor
+*Live Demo Coming Soon!*
+
+See <a href = "https://github.com/iannakim/NYC-School-Monitor_backend"> Backend Repo Here</a>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
