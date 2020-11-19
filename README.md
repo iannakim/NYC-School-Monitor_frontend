@@ -3,71 +3,91 @@
 
 See <a href = "https://github.com/iannakim/NYC-School-Monitor_backend"> Backend Repo Here</a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NYC School Monitor is a React/Redux app powered by Rails API backend that allows users to browse through all 400+ New York City public high schools and publish/share reviews based on their experience. Users can sign up as one of the 4 roles: Parent, Current Student, Teacher, or Alumni. The application focuses on inseminating important information regarding each school such as
 
-## Available Scripts
+* General Info (School overview, grades, address, start-time/end-time)
+* Building Accessibility
+* Graduation rate (as of 2019)
+* Attendance rate (as of 2019)
+* Available ELL Programs
+* Foreign Language Subjects offered
+* Advanced Placement Courses offered
+* Extracurricular Activities & Clubs
+* Transportation Methods via Bus and Subway
 
-In the project directory, you can run:
+Users can utilize the search bar to filter specific schools and see the exact location of the school via google map on the main page. Lastly, Users can publish, update, and remove reviews and add schools to 'Saved Schools' list.
 
-### `yarn start`
+## Take a Look 📷
+<img src='./image/screenshot1.png'> </img>
+<img src='./image/screenshot2.png'> </img>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Password Authentication
+ * Validate current users and keeps them logged in using sessions
+ * Authenticate users' passwords with BCrypt
 
-### `yarn test`
+### CRUD Operations
+ Users (the Attendee) can:
+  * log into the application
+  * create an account
+  * see an error message if their account input is wrong
+  * register for a meeting
+  * view their meetings
+  * browse available meetings
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ User (the Host) can:
+  * log into the application
+  * create a meeting
+  * change their meetings
+  * cancel the meeting
+  
+ ## Set Up
+ * Clone down this repo into local machine --git clone <git repository>
+ * CD into 'Coterie' application
+ * Run 'bundle install' to install all required dependencies
+ * Run 'rails db:migrate' to set up the tables for the database
+ * Run 'rails db:seed' load data
+ * Run 'rails s' to start the server
+ * Open the browser and go to 'http://localhost:3000/' to start the app!
 
-### `yarn build`
+### Active Record Associations
+ * There are 5 models that have the following associations ```has_many, belongs_to and has_many, through: ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Domain Model
+<img src='./image/domainmodel.png'> </img>
+ 
+## Tech Stack
+ * Ruby on Rails
+ * PostgreSQL
+ * HTML/CSS
+ * Active Record
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tools
+ * Bootstrap
+ * BCrypt
+ * Custom CSS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Build Status
+ * This project is complete for the purpose of the project deadline.
 
-### `yarn eject`
+## Future Features
+ * Improve design elements (look of buttons, background image, text manipulation)
+ * Create a logo
+ * Add About page
+ * Utilize API/CSV file for welcome page
+ * If a user is a host they can’t be an attendee
+ * Allow users to upload a profile picture
+ * Add attribute to meeting for url
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Creator
+ * [Anna Kim](https://github.com/iannakim) <a href = "https://www.linkedin.com/in/devannakim/"> Let's Connect</a>!  👋🏻
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 
+## Acknowledgements
+ We would like to thank:
+  * Sylwia Vargas
+  * Eric Kim
+  * Annie Zheng
+  * Isabel K. Lee
+  * the Code Bender Cohort
