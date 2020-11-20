@@ -3,23 +3,23 @@
 
 See <a href = "https://github.com/iannakim/NYC-School-Monitor_backend"> Backend Repo Here</a>
 
-NYC School Monitor is a React/Redux app powered by Rails API backend that allows users to browse through all 400+ New York City public high schools and publish/share reviews based on their experience. Users can sign up as one of the 4 roles: Parent, Current Student, Teacher, or Alumni. The application focuses on inseminating important information regarding each school such as
+NYC School Monitor is a React/Redux app powered by Rails API backend that allows users to browse through all 400+ New York City public high schools and publish/share reviews based on their experience. 
 
-   * General Info (School overview, grades, address, start-time/end-time)
-   * Building Accessibility
-   * Graduation rate
-   * Attendance rate
-   * Available ELL Programs
-   * Foreign Language Subjects
-   * AP Courses offered
-   * Extracurricular Activities & Clubs
-   * Transportation Methods
+## App Features
+1. Users can sign up as one of the 4 roles: Parent, Current Student, Teacher, or Alumni.
+2. The application focuses on inseminating important information regarding each school such as:
+     * General Info (School overview, grades, address, start-time/end-time)
+     * Building Accessibility
+     * Graduation rate
+     * Attendance rate
+     * Available ELL Programs
+     * Foreign Language Subjects
+     * AP Courses offered
+     * Extracurricular Activities & Clubs
+     * Transportation Methods
 
-Users can utilize the search bar to filter specific schools and see the exact location of the school via google map on the main page. Lastly, Users can publish, update, and remove reviews and add schools to 'Saved Schools' list.
-
-## Take a Look 📷
-<img src='./image/screenshot1.png'> </img>
-<img src='./image/screenshot2.png'> </img>
+3. Users can utilize the search bar to filter specific schools and see the exact location of the school via google map on the main page.
+4. Full CRUD Operation on *School Reviews* (publish, update, and remove) *Saved Schools* List.
 
 ## Tech Stack
  * Ruby [2.6.1]
@@ -34,29 +34,32 @@ Users can utilize the search bar to filter specific schools and see the exact lo
  * Semantic UI
  * HTML/CSS
 
-## Domain Model
-<img src='./image/domainmodel.png'> </img>
-
 ## Set Up
- * clone down this repo into local machine --git clone
- * cd into 'Coterie' application
- * run 'bundle install' to install all required dependencies
- * run 'rails db:migrate' to set up the tables for the database
- * run 'rails db:seed' load data
- * run 'rails s' to start the server
- * open the browser and go to 'http://localhost:3000/' to start the app!
- 
-## Known Issues
-Please see issues
+   -- part 1--
+   * clone this repo and the <a href = "https://github.com/iannakim/NYC-School-Monitor_backend"> backend repo </a> into your local environment
+   * cd into the *backend* repository you just cloned and run 'bundle install' to install all gems and dependencies
+   * run 'rails db:create' to create the database for the first time (or try 'rails db:reset')
+   * run 'rails db:migrate' to create the tables
+   * run 'rails db:seed' to seed data for our server
+   * run 'rails s' to start the server
+   -- part 2 --
+   * open up another terminal and cd into the *frontend* repo that you've cloned
+   * run 'npm install' to aquire all dependencies
+   * run 'npm start' to open up your browser and see the application
+
+## Sample Images 📷
+*coming soon*
+
+## Domain Model
+*coming soon*
 
 ## For Future Improvements
- * Improve design elements (look of buttons, background image, text manipulation)
- * Create a logo
- * Add About page
- * Utilize API/CSV file for welcome page
- * If a user is a host they can’t be an attendee
- * Allow users to upload a profile picture
- * Add attribute to meeting for url
+ * Implement different language versions [Spanish, Korean, Chinese, Polish, Arabic, Etc]
+ * Add info window on map markers
+ * User profile page to see all posted reviews
+
+## Known Issues
+Please see issues
 
 ## Creator
  * [Anna Kim](https://github.com/iannakim) <a href = "https://www.linkedin.com/in/devannakim/"> Let's Connect</a>!  👋🏻
