@@ -6,8 +6,13 @@ See <a href = "https://github.com/iannakim/NYC-School-Monitor_backend"> Backend 
 NYC School Monitor is a React/Redux app powered by Rails API backend that allows users to browse through all 400+ New York City public high schools and publish/share reviews based on their experience. 
 
 ## App Features
-1. Users can sign up as one of the 4 roles: Parent, Current Student, Teacher, or Alumni.
-2. The application focuses on inseminating important information regarding each school such as:
+1. Users can sign up as one of the 4 roles: 
+     * Parent
+     * Current Student
+     * Teacher
+     * Alumni
+     
+2. Users have access to the following important information on each school:
      * General Info (School overview, grades, address, start-time/end-time)
      * Building Accessibility
      * Graduation rate
