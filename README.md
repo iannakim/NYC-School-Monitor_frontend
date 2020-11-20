@@ -35,14 +35,15 @@ NYC School Monitor is a React/Redux app powered by Rails API backend that allows
  * HTML/CSS
 
 ## Set Up
-   -- part 1--
+  -- part 1--
    * clone this repo and the <a href = "https://github.com/iannakim/NYC-School-Monitor_backend"> backend repo </a> into your local environment
    * cd into the *backend* repository you just cloned and run 'bundle install' to install all gems and dependencies
    * run 'rails db:create' to create the database for the first time (or try 'rails db:reset')
    * run 'rails db:migrate' to create the tables
    * run 'rails db:seed' to seed data for our server
    * run 'rails s' to start the server
-   -- part 2 --
+   
+ -- part 2 --
    * open up another terminal and cd into the *frontend* repo that you've cloned
    * run 'npm install' to aquire all dependencies
    * run 'npm start' to open up your browser and see the application
