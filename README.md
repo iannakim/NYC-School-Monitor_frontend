@@ -59,6 +59,9 @@ NYC School Monitor is a React/Redux app powered by Rails API backend that allows
 ## Domain Model
 *coming soon*
 
+## Build Status
+* This project was completed in 10 days for the purpose of the project presentation.
+
 ## For Future Improvements
  * Implement different language versions [Spanish, Korean, Chinese, Polish, Arabic, Etc]
  * Add info window on map markers
