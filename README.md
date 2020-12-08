@@ -1,5 +1,5 @@
 # NYC School Monitor
-*Live Demo Coming Soon!*
+Check out the <a href="https://youtu.be/XhGUIsml7eE"> demo here </a>🎬
 
 See <a href = "https://github.com/iannakim/NYC-School-Monitor_backend"> Backend Repo Here</a>
 
