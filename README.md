@@ -18,7 +18,7 @@ NYC School Monitor is a React/Redux app powered by Rails API backend that allows
  * Semantic UI
  * HTML/CSS
  
-## App Features
+## Features
 1. Users can sign up as one of the 4 roles: 
      * Parent
      * Current Student
