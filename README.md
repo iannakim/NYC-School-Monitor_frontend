@@ -53,7 +53,7 @@ NYC School Monitor is a React/Redux app powered by Rails API backend that allows
    * run 'npm install' to aquire all dependencies
    * run 'npm start' to open up your browser and see the application
 
-## Sample Images 📷
+## Take a Look! 📷
 *coming soon*
 
 ## Domain Model
