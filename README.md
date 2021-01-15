@@ -6,6 +6,8 @@ See <a href = "https://github.com/iannakim/NYC-School-Monitor_backend"> Backend 
 NYC School Monitor is a React/Redux app powered by Rails API backend that allows users to browse through all 400+ New York City public high schools and publish/share reviews based on their experience. 
 
 ## Tech Stack
+ * React JS
+ * Redux
  * Ruby [2.6.1]
  * Rails [6.0.3.2]
  * NYC Open Data API
@@ -15,6 +17,7 @@ NYC School Monitor is a React/Redux app powered by Rails API backend that allows
  * Rack Cors
  * Active Model Serializer
  * BCrypt + JWT
+ * localStorage
  * Semantic UI
  * HTML/CSS
  
