@@ -103,6 +103,7 @@ let initialStateOfUserReducer = {
   token: "",
   role: "",
   reviews: [],
+  saveds: [],
   selectedSchool: []
 }
 
@@ -116,7 +117,8 @@ let userReducer = (state = initialStateOfUserReducer, action) => {
         username: action.payload.user.username,
         token: action.payload.token,
         role: action.payload.user.role,
-        reviews: action.payload.user.reviews
+        reviews: action.payload.user.reviews,
+        saveds: action.payload.user.saveds
       }
       case "LOG_OUT_USER":
         return initialStateOfUserReducer

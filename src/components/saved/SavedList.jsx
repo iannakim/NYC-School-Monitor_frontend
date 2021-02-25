@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import { Card, Button, Icon } from 'semantic-ui-react'
 import { confirmAlert } from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
@@ -9,16 +10,19 @@ class SavedList extends React.Component{
     schools: []
   }
 
-  componentDidMount() {
-    fetch("http://localhost:3000/getSaved")
-    .then(res => res.json())
-    .then((allSavedSchools) => {
-      // console.log(allSavedSchools)
-      this.setState({
-        schools: allSavedSchools
-      })
-    })
-  }
+  // componentDidMount() {
+  //   fetch("http://localhost:3000/getSaved")
+  //   .then(res => res.json())
+  //   .then((allSavedSchools) => {
+
+  //     this.setState({
+  //       schools: allSavedSchools
+  //     })
+  //   })
+
+  // }
+
+
 
   handleClick = (savedObjId) => {
     confirmAlert({
@@ -51,26 +55,28 @@ class SavedList extends React.Component{
     this.props.history.push(`/schools/${obj.school.id}`)
   }
 
+
+
   render() {
 
-    let arrayOfSavedSchools = this.state.schools.map(savedObj => {
+
+    let arrayOfSavedSchools = this.props.saveds.map(savedObj => {
       return  <Card.Group>
                 <Card fluid>
                   <Card.Content onClick={() => {this.handleSchoolClick(savedObj)}}
-                      header={""}
                       style={{
+                        cursor: 'pointer',
                         height: "60px",
-                        fontSize: '1rem',
+                        fontSize: '1rem'
                       }} 
                   >
                     <span style={{fontSize: "18px", lineHeight: "40px"}}>{savedObj.school.name}</span>
                   </Card.Content>
-                  <Card.Content description 
+                  <Card.Content 
                       style={{
                         height: "48px",
-                        color: "black",
                         padding: "6px 10px",
-                        textAlign: "right"
+                        textAlign: "right"     
                       }} >
                     <Button onClick={() => {this.handleClick(savedObj.id)}}>
                       <Icon name="trash alternate outline"></Icon>
@@ -102,4 +108,10 @@ class SavedList extends React.Component{
   }
 }
 
-export default SavedList
+let mapStateToProps = (globalState) => {
+  return {
+      saveds: globalState.infoAboutUser.saveds
+  }
+}
+
+export default connect(mapStateToProps, null)(SavedList)

@@ -45,7 +45,10 @@ class MapContainer extends React.Component {
                   lat: school.latitude,
                   lng: school.longitude
               }}
-              onClick={() => console.log(`${school.name}`)} />
+              onClick={() => {
+                
+              }} />
+              //should I setState selected shcool here? and then render InfoWindow below?
     })
 }
 
@@ -62,6 +65,30 @@ class MapContainer extends React.Component {
               style={mapStyles}
               initialCenter={{ lat: 40.711185, lng: -73.888122}}>
               {this.displayMarkers()}
+              {/* {selectedRestaurant &&(
+                            <InfoWindow
+                                position={{
+                                    lat: selectedRestaurant.latitude,
+                                    lng: selectedRestaurant.longitude
+                                }}
+                                onCloseClick={() => {
+                                    setSelectedRestaurant(null);
+                                }}>
+                                <div>
+                                    <div id='rstName_on_map'
+                                        onClick={() => {
+                                            props.history.push(`/restaurants/${selectedRestaurant.id}`)
+                                        }}>
+                                        {selectedRestaurant.name}
+                                    </div>
+                                    <p>{selectedRestaurant.cuisines}</p>
+                                    <p>{selectedRestaurant.phone_number}</p>
+                                    <p>{selectedRestaurant.address}</p>
+                                    <p>{selectedRestaurant.user_rating_text} with {selectedRestaurant.user_rating} <Icon name='star' /> </p>
+
+                                </div>
+                            </InfoWindow>
+                        )} */}
           </Map>
       </div>
     ) 
