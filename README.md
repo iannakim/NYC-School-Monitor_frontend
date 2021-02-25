@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# NYC School Monitor
+Check out the <a href="https://youtu.be/XhGUIsml7eE"> demo here </a>🎬
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+See <a href = "https://github.com/iannakim/NYC-School-Monitor_backend"> Backend Repo Here</a>
 
-## Available Scripts
+NYC School Monitor is a React/Redux app powered by Rails API backend that allows users to browse through all 400+ New York City public high schools and publish/share reviews based on their experience. 
 
-In the project directory, you can run:
+## Tech Stack
+ * React JS
+ * Redux
+ * Ruby [2.6.1]
+ * Rails [6.0.3.2]
+ * NYC Open Data API
+ * Google Maps API
+ * PostgreSQL
+ * Active Record
+ * Rack Cors
+ * Active Model Serializer
+ * BCrypt + JWT
+ * localStorage
+ * Semantic UI
+ * HTML/CSS
+ 
+## Features
+1. Users can sign up as one of the 4 roles: 
+     * Parent
+     * Current Student
+     * Teacher
+     * Alumni
+     
+2. Users have access to the following important information on each school:
+     * General Info (School overview, grades, address, start-time/end-time)
+     * Building Accessibility
+     * Graduation rate
+     * Attendance rate
+     * Available ELL Programs
+     * Foreign Language Subjects
+     * AP Courses offered
+     * Extracurricular Activities & Clubs
+     * Transportation Methods
 
-### `yarn start`
+3. Users can utilize the search bar to filter specific schools and see the exact location of the school via google map on the main page.
+4. Full CRUD Operation on *School Reviews* (publish, update, and remove) *Saved Schools* List.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Set Up
+  -- part 1--
+   * clone this repo and the <a href = "https://github.com/iannakim/NYC-School-Monitor_backend"> backend repo </a> into your local environment
+   * cd into the *backend* repository you just cloned and run 'bundle install' to install all gems and dependencies
+   * run 'rails db:create' to create the database for the first time (or try 'rails db:reset')
+   * run 'rails db:migrate' to create the tables
+   * run 'rails db:seed' to seed data for our server
+   * run 'rails s' to start the server
+   
+ -- part 2 --
+   * open up another terminal and cd into the *frontend* repo that you've cloned
+   * run 'npm install' to aquire all dependencies
+   * run 'npm start' to open up your browser and see the application
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Take a Look! 📷
+*coming soon*
 
-### `yarn test`
+## Domain Model
+*coming soon*
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Build Status
+* This project was completed in 10 days for the purpose of the project presentation.
 
-### `yarn build`
+## For Future Improvements
+ * Implement different language versions [Spanish, Korean, Chinese, Polish, Arabic, Etc]
+ * Add info window on map markers
+ * User profile page to see all posted reviews
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Known Issues
+Please see issues
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Creator
+ * [Anna Kim](https://github.com/iannakim) <a href = "https://www.linkedin.com/in/devannakim/"> Let's Connect</a>!  👋🏻
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
