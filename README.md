@@ -68,10 +68,11 @@ NYC School Monitor is a React/Redux app powered by Rails API backend that allows
 ## For Future Improvements
  * Implement different language versions [Spanish, Korean, Chinese, Polish, Arabic, Etc]
  * Add info window on map markers
- * User profile page to see all posted reviews
+ * Implement User account page
 
 ## Known Issues
-Please see issues
+ * Saved School does not render up to date (have to refresh page at the moment) -- Working on Redux* --
+ * Home component background loads slowly
 
 ## Creator
  * [Anna Kim](https://github.com/iannakim) <a href = "https://www.linkedin.com/in/devannakim/"> Let's Connect</a>!  👋🏻
