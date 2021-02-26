@@ -20,7 +20,8 @@ class Navbar extends React.Component {
         const { activeItem } = this.state
 
         return (
-            
+            //using ternary operator to render logged in user's name on the navbar
+                //seems very repetitive. refactor this part.
             <div>
                 {
                     localStorage.token

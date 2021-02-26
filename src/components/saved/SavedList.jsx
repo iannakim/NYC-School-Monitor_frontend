@@ -10,6 +10,9 @@ class SavedList extends React.Component{
     schools: []
   }
 
+  // EDIT: SAVED data is being fetched on initial load through userInfo onREDUX 
+
+
   // componentDidMount() {
   //   fetch("http://localhost:3000/getSaved")
   //   .then(res => res.json())
@@ -23,6 +26,9 @@ class SavedList extends React.Component{
   // }
 
 
+  // CURRENTLY WORKING ON: NEED TO UPDATE BACKEND THROUGH *REDUX* NOW
+    //backend update no longer re-renders the page
+      // only shows when you refresh the page
 
   handleClick = (savedObjId) => {
     confirmAlert({
@@ -113,5 +119,7 @@ let mapStateToProps = (globalState) => {
       saveds: globalState.infoAboutUser.saveds
   }
 }
+
+// NEED TO DISPATCH when user clicks REMOVE button
 
 export default connect(mapStateToProps, null)(SavedList)

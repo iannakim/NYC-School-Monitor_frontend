@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import { Card, Button, Icon } from 'semantic-ui-react'
+import  '../../App.css'
 
 class SingleSchool extends React.Component{
 
@@ -12,7 +13,8 @@ handleClick = () => {
 
 
   render(){
-
+    //single school card displayed on the school index page
+      //avoid in styling - very messy
     let {name, address, city, state, zipcode, grades} = this.props.school
 
     return(
@@ -23,7 +25,7 @@ handleClick = () => {
               style={{
                 height: "100%",
                 fontSize: '1.3rem',
-                // backgroundImage: `url(https://img.freepik.com/free-vector/illustration-space_29937-1093.jpg?size=626&ext=jpg)`,
+                backgroundColor: '#fff',
               }} 
           />
           <Card.Content description                       

@@ -3,6 +3,8 @@ import { Icon, Input } from 'semantic-ui-react';
 
 class Searchbar extends React.Component{
 
+  //callback function invoked with controlled form data.
+    //sending back what user typed on the search bar
   handleInput = (evt) => {
       this.props.changeSearchTerm(evt.target.value)
   }

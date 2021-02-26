@@ -232,4 +232,7 @@ let mapStateToProps = (globalState) => {
   }
 }
 
+
+//NEED TO DISPATCH [create saved] when user clicks on the 'SAVE' button
+
 export default connect(mapStateToProps, null)(SelectedSchoolPage)

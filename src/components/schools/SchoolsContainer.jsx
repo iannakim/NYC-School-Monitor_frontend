@@ -13,7 +13,8 @@ class SchoolsContainer extends React.Component{
     filters: []
   }
 
-
+  //callback function sent down to searchbar as prop.
+    //received data will reset the state
   changeSearchTerm = (termFromChild) => {
     this.setState({
       searchTerm: termFromChild
@@ -24,6 +25,7 @@ class SchoolsContainer extends React.Component{
 
   render(){
 
+    //filter and rerender the list of schools using the searchTerm on the state
     let filteredArrayOfSchools = this.props.schools.filter(school => {
       return school.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
     })
@@ -34,8 +36,7 @@ class SchoolsContainer extends React.Component{
 
 
     return(
-      // <div>
-      //   <h2>List of Schools in NYC</h2>
+      // Renders search bar and list of high school directory
     <Grid style={{height: "100%"}}>
         <Grid.Row style={{height: "100%"}}>
           <Grid.Column width={6} style={{padding: "20px 20px", height: "100%", overflowY: "hidden"}}>
@@ -44,7 +45,10 @@ class SchoolsContainer extends React.Component{
                 changeSearchTerm={this.changeSearchTerm}
               />
               {/* <Filter /> */}
+              {/* Next step: implement filter component and render out filtered array result */}
             <br /><br />
+
+            {/* Loading UI while the content if being fetched from backend. this takes about 3 seconds. Need to make it faster */}
             <div style={{height: "100%", overflowY: "auto"}}>
               {
                 arrayOfSchools.length > 0 ? 

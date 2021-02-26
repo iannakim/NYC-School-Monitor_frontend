@@ -1,10 +1,18 @@
-.App {
-  text-align: center;
-  /* font-family: "Arial" !important; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap');
+
+
+h1, h2, h3, p {
+  font-family: 'Poppins' !important;
+  text-align: left;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: "Helvetica" !important;
+h1 {
+  font-size: 3.5em !important;
+}
+
+h2 {
+  color: rgb(20, 12, 172);
+  font-size: 1.3em !important;
 }
 
 .ui.grid {
