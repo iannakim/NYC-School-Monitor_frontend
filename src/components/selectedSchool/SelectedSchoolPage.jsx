@@ -90,7 +90,7 @@ handleClick = () => {
               }}>
                 
                 <div class="section">
-                  <h1><img src={school}/> {name}</h1>
+                  <h2><img src={school}/> {name}</h2>
                   <Grid>
                     <Grid.Row style={{paddingBottom: "0px"}}>
                       <Grid.Column width={8}>
@@ -113,7 +113,7 @@ handleClick = () => {
                 </div>
 
                 <div class="section">
-                  <h2>School Overview</h2>
+                  <h3>School Overview</h3>
                   <Grid>
                     <Grid.Row>
                       <Grid.Column width={12}>
@@ -124,7 +124,7 @@ handleClick = () => {
                 </div>
                   
                 <div class="section">
-                  <h2>Performance & Opportunities</h2>
+                  <h3>Performance & Opportunities</h3>
                   <Grid>
                     <Grid.Row>
                       <Grid.Column width={12}>
@@ -139,7 +139,7 @@ handleClick = () => {
                 </div>
 
                 <div class="section">
-                  <h2>Extracurricular Activities</h2>
+                  <h3>Extracurricular Activities</h3>
                   <Grid>
                     <Grid.Row>
                       <Grid.Column width={12}>
@@ -150,14 +150,14 @@ handleClick = () => {
                 </div>
 
                 <div class="section">
-                  <h2>Building Information</h2>
+                  <h3>Building Information</h3>
                   <p><Icon name="building" data-tip="Shared Space Schools are schools that utilize the same building as 1 or more other schools"></Icon> <b>Shared space</b>: {shared_space} </p>
                   <p><Icon name="accessible" data-tip="Accessible Schools are schools with fully or partially accessible buildings to support students with mobility impairments."></Icon> {accessibility} </p>
                   <ReactTooltip />
                 </div>
 
                 <div class="section">
-                  <h2>Transportation</h2>
+                  <h3>Transportation</h3>
                   <Grid>
                     <Grid.Row>
                       <Grid.Column width={5}>

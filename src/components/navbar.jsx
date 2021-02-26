@@ -43,7 +43,7 @@ class Navbar extends React.Component {
                             active={activeItem === 'home'}
                             onClick={this.handleItemClick}
                         >
-                            <NavLink to="/"><h3>NYC SCHOOL MONITOR</h3></NavLink>
+                            <NavLink to="/"><p>NYC SCHOOL MONITOR</p></NavLink>
                         </Menu.Item>
                 
                         <Menu.Item 

@@ -42,7 +42,7 @@ const Home = () => {
                     width: "15%"}} src={yellowbus} />
                     </div>
                     <h1>Hi there!</h1>
-                    <h2>Welcome to NYC School Monitor. One stop for accessing 400+ New York City high schools with a click of a button.</h2>
+                    <h3>Welcome to NYC School Monitor. One stop for accessing 400+ New York City high schools with a click of a button.</h3>
                     <p>NYC School Monitor uses NYC Open Data to access information on all current high schools around the five boroughs. Parents and Students can use the directory to browse schools in their neighborhoods as well as explore all academic and non-academic programs provided by each school.</p>
                         
                     <p>For parents wishing to compare different school options, use the 'Save' feature to store information separately and access them at any time.Read reviews shared by other parents, teachers, current students as well as alumni to see if this is the right school for your child.</p>

@@ -11,8 +11,12 @@ h1 {
 }
 
 h2 {
+  font-size: 1.8em !important;
+}
+
+h3 {
   color: rgb(20, 12, 172);
-  font-size: 1.3em !important;
+  font-size: 1.2em !important;
 }
 
 .ui.grid {
