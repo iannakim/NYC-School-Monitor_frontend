@@ -219,6 +219,10 @@ let mapStateToProps = (globalState) => {
   }
 }
 
+
+//action --------
+  //type: command "string" describing the state change
+  //payload: any data needed to complete the state change
 let deleteReview = (deletedReviewID) => {
   return {
       type: "DELETE_REVIEW",

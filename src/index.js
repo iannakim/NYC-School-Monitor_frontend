@@ -15,6 +15,9 @@ import {BrowserRouter} from 'react-router-dom'
 
 
 // ----- School Reducer -----
+  //switch statements return a new state based on the action type event
+    //reducer will take in data and redue it to a single object: the state
+    
 let initialStateOfSchoolsReducer = {
   schools: [],
 }
